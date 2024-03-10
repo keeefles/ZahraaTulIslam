@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>User End Points</h1>
+    <table class="generalTable">
+      <caption>
+        <h3>General Routing</h3>
+      </caption>
+      <thread>
+        <th>Path</th>
+        <th>HTTP Methods</th>
+        <th>Description</th>
+      </thread>
+      <tbody>
+        <tr>
+          <td>/</td>
+          <td>GET</td>
+          <td>To display the home page</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="userTable">
+      <caption>
+        <h3>User Routing</h3>
+      </caption>
+      <thread>
+        <th>Path</th>
+        <th>HTTP methods</th>
+        <th>Description</th>
+      </thread>
+      <tbody>
+        <tr>
+          <td>/users/</td>
+          <td>GET</td>
+          <td>Display all users</td>
+        </tr>
+        <tr>
+          <td>/users/register</td>
+          <td>POST</td>
+          <td>Register a new user</td>
+        </tr>
+        <tr>
+          <td>/users/:id</td>
+          <td>GET</td>
+          <td>Retrieve one user</td>
+        </tr>
+        <tr>
+          <td>/delete/:id</td>
+          <td>DELETE</td>
+          <td>Delete user</td>
+        </tr>
+        <tr>
+          <td>/login/</td>
+          <td>GET</td>
+          <td>Login to an account</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="postTable">
+      <caption>
+        <h3>Post Routing</h3>
+      </caption>
+      <thread>
+        <th>Path</th>
+        <th>HTTP methods</th>
+        <th>Description</th>
+      </thread>
+      <tbody>
+        <tr>
+          <td>/posts/</td>
+          <td>GET</td>
+          <td>Display all posts</td>
+        </tr>
+        <tr>
+          <td>/posts/addpost/</td>
+          <td>POST</td>
+          <td>Add a new post</td>
+        </tr>
+        <tr>
+          <td>/posts/:id</td>
+          <td>GET</td>
+          <td>Retrieve one post</td>
+        </tr>
+        <tr>
+          <td>/delete/:id</td>
+          <td>DELETE</td>
+          <td>Delete post</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
