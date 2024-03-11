@@ -28,7 +28,7 @@
             <td>{{ user.emailAdd }}</td>
             <td>{{ user.mobileNumber }}</td>
             <td class="d-flex justify-content-between">
-              <updateUser :user="user" />
+              <updateUser :user="user" @updateUser="updateUser"/>
               <button
                 class="btn btn-success deleteButton"
                 @click="(event) => deleteUser(user.userId)"
