@@ -33,14 +33,6 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
-                placeholder="User ID"
-                v-model="payload.userId"
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control w-50 mx-auto"
                 placeholder="First Name"
                 v-model="payload.firstName"
               />
@@ -65,6 +57,14 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                placeholder="Username"
+                v-model="payload.username"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control w-50 mx-auto"
                 placeholder="Email Address"
                 v-model="payload.emailAdd"
               />
@@ -83,14 +83,6 @@
                 class="form-control w-50 mx-auto"
                 placeholder="User Password"
                 v-model="payload.userPass"
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control w-50 mx-auto"
-                placeholder="User Profile"
-                v-model="payload.userProfile"
               />
             </div>
             <div class="modal-footer">

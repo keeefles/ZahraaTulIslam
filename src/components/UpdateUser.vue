@@ -4,7 +4,7 @@
     type="button"
     class="btn modalButton"
     data-bs-toggle="modal"
-    data-bs-target="#updateUserModal"
+    :data-bs-target="'#updateUserModal'+user.userId"
   >
     Update User
   </button>
@@ -12,7 +12,7 @@
   <!-- Modal -->
   <div
     class="modal fade"
-    id="updateUserModal"
+    :id="'updateUserModal'+user.userId"
     tabindex="-1"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
@@ -37,11 +37,9 @@
                 type="text"
                 class="form-control w-50 mx-auto"
                 required="required"
-                placeholder="User ID"
                 v-model="payload.userId"
-              />
-            </div>
-            <div class="mb-3">
+                disabled="disabled"
+              >
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
@@ -72,6 +70,14 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                placeholder="Username"
+                v-model="payload.username"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control w-50 mx-auto"
                 required="required"
                 placeholder="Email Address"
                 v-model="payload.emailAdd"
@@ -95,14 +101,6 @@
                 v-model="payload.userPass"
               />
             </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control w-50 mx-auto"
-                placeholder="User Profile"
-                v-model="payload.userProfile"
-              />
-            </div>
             <div class="modal-footer">
               <button
                 type="button"
@@ -114,7 +112,7 @@
               <button
                 type="submit"
                 class="btn btn-success"
-                @click="(event) => updateUser(userId)"
+                @click="(event) => updateUser(payload.userId)"
               >
                 Update
               </button>
@@ -130,25 +128,29 @@
 import Swal from "sweetalert2";
 export default {
   name: "UpdateUser",
+  props:{
+    user:Object
+  },
   data() {
     return {
       payload: {
-        userId: "",
-        firstName: "",
-        lastName: "",
-        userAge: "",
-        emailAdd: "",
-        mobileNumber: "",
-        userPass: "",
-        userProfile: "",
+        userId: this.user.userId,
+        firstName: this.user.firstName,
+        lastName: this.user.lastName,
+        userAge: this.user.userAge,
+        username: this.user.username,
+        emailAdd: this.user.emailAdd,
+        mobileNumber: this.user.mobileNumber,
+        userPass: this.user.userPass,
       },
     };
   },
 
   methods: {
     async updateUser() {
+      console.log(this.$data);
       try {
-        await this.$store.dispatch("updateUser", {
+          await this.$store.dispatch("updateUser", {
           id: this.payload.userId,
           data: this.payload,
         });
@@ -160,9 +162,9 @@ export default {
           showConfirmButton: false,
         });
 
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
+        // setTimeout(() => {
+        //   window.location.reload();
+        // }, 5000);
       } catch (error) {
         console.error(error);
         Swal.fire({
@@ -176,7 +178,6 @@ export default {
           window.location.reload();
         }, 3000);
       }
-      // window.location.reload();
     },
   },
 };
