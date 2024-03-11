@@ -1,4 +1,4 @@
-function errorHandling(err, req, res, next) {
+function ErrorHandling(err, req, res, next) {
   if (err || res.statusCode >= 400) {
     res.json({
       status: err.status || res.statusCode || 500,
@@ -9,4 +9,4 @@ function errorHandling(err, req, res, next) {
   }
 }
 
-export { errorHandling };
+export { ErrorHandling };

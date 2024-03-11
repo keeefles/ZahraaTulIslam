@@ -1,7 +1,7 @@
 import { userRouter, express } from "./controller/userController.js";
 import { postRouter } from "./controller/postController.js";
 import cookieParser from "cookie-parser";
-import {errorHandling} from './middleware/errorHandling.js'
+import { ErrorHandling } from './middleware/ErrorHandling.js'
 import path from 'path'
 import cors from 'cors'
 import { config } from "dotenv";
@@ -36,7 +36,7 @@ app.get('^/$|/nodetest', (req, res)=>{
 
 app.use('/users', userRouter)
 app.use('/posts', postRouter)
-app.use(errorHandling)
+app.use(ErrorHandling)
 app.listen(port, ()=>{
     console.log(`Server is running on port ${port}`);
 })
