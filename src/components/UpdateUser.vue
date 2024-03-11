@@ -36,14 +36,14 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
-                required="required"
+                required
                 v-model="payload.userId"
                 disabled="disabled"
               >
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
-                required="required"
+                required
                 placeholder="First Name"
                 v-model="payload.firstName"
               />
@@ -52,7 +52,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
-                required="required"
+                required
                 placeholder="Last Name"
                 v-model="payload.lastName"
               />
@@ -61,7 +61,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
-                required="required"
+                required
                 placeholder="Age"
                 v-model="payload.userAge"
               />
@@ -78,7 +78,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
-                required="required"
+                required
                 placeholder="Email Address"
                 v-model="payload.emailAdd"
               />
@@ -87,7 +87,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
-                required="required"
+                required
                 placeholder="Mobile Number"
                 v-model="payload.mobileNumber"
               />
@@ -96,7 +96,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
-                required="required"
+                required
                 placeholder="Password"
                 v-model="payload.userPass"
               />
@@ -141,7 +141,7 @@ export default {
         username: this.user.username,
         emailAdd: this.user.emailAdd,
         mobileNumber: this.user.mobileNumber,
-        userPass: this.user.userPass,
+        userPass: "",
       },
     };
   },
