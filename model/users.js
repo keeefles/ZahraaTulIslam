@@ -1,6 +1,6 @@
 import { connection as zti } from "../config/index.js";
 import { hash, compare } from "bcrypt";
-import { createToken } from "../middleware/userAuthenticate.js";
+import { createToken } from "../middleware/UserAuthenticate.js";
 
 class Users {
   fetchUsers(req, res) {
