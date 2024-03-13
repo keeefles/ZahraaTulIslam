@@ -8,8 +8,8 @@
       <table class="table">
         <thead class="table-dark">
           <tr>
-            <th>User Id</th>
             <th>Post Id</th>
+            <th>Username</th>
             <th>Content</th>
             <th>Comments</th>
             <th>Action</th>
@@ -17,8 +17,8 @@
         </thead>
         <tbody v-if="posts">
           <tr v-for="post in posts" :key="post.postId">
-            <td>{{ post.userId }}</td>
             <td>{{ post.postId }}</td>
+            <td>{{ post.username }}</td>
             <td>{{ post.content }}</td>
             <td>{{ post.comments }}</td>
             <td class="d-flex justify-content-between">
@@ -60,8 +60,8 @@ export default {
     },
     updatePost(post) {
       let editPost = {
-        userId: post.userId,
         postId: post.postId,
+        username: post.username,
         content: post.content,
         comments: post.comments,
       };

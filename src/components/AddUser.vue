@@ -100,7 +100,7 @@
                 data-bs-dismiss="modal"
               >
                 Add User
-              </button>c 
+              </button>
             </div>
           </form>
         </div>
