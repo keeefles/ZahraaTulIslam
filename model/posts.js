@@ -46,7 +46,7 @@ class Posts {
     const qry = `
         UPDATE Posts
         SET ?
-        WHERE postID = ${req.params.id};
+        WHERE postId = ${req.params.id};
         `;
     zti.query(qry, [req.body], (err) => {
       if (err) throw err;
