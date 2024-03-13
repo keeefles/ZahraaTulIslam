@@ -92,14 +92,15 @@ export default {
     return {
       payload: {
         postId: "",
-        userId: "",
+        userId: null,
         content: "",
         comments: "",
       },
     };
   },
   methods: {
-    addingProduct() {
+    addingPost() {
+      console.log(this.payload);
       try {
         this.$store.dispatch("addPost", this.payload);
       } catch (error) {

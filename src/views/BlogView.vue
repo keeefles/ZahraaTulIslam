@@ -1,7 +1,7 @@
 <template>
   <div>
     <br />
-    <h2>Users Table</h2>
+    <h2>Posts Table</h2>
     <br />
     <addPost />
     <div class="container table-responsive">
@@ -16,7 +16,7 @@
           </tr>
         </thead>
         <tbody v-if="posts">
-          <tr v-for="post in $store.state.posts" :key="post.postId">
+          <tr v-for="post in posts" :key="post.postId">
             <td>{{ post.userId }}</td>
             <td>{{ post.postId }}</td>
             <td>{{ post.content }}</td>
@@ -25,7 +25,7 @@
               <updatePost :post="post" @updatePost="updatePost" />
               <button
                 class="btn btn-success deleteButton"
-                @click="(event) => deletePost(post.postId)"
+                @click="deletePost(post.postId)"
               >
                 Delete
               </button>
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     deletePost(postId) {
-      this.$store.dispatch("deletePost", { id: post.postId });
+      this.$store.dispatch("deletePost", { id: postId });
     },
     updatePost(post) {
       let editPost = {

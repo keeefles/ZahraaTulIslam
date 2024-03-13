@@ -1,13 +1,13 @@
 <template>
-  <div>
-    this is the about page
-  </div>
+    <div>
+        <h2>this is an about page.</h2>
+    </div>
 </template>
 
 <script>
-  export default {
-    
-  }
+    export default {
+        
+    }
 </script>
 
 <style scoped>

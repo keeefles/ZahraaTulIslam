@@ -21,7 +21,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">
-            Update Products
+            Update Post
           </h1>
           <button
             type="button"
@@ -76,6 +76,7 @@
                 type="submit"
                 class="btn btn-success"
                 data-bs-dismiss="modal"
+                @click="(event) => updatingPost()"
               >
                 Update
               </button>
@@ -90,19 +91,22 @@
 <script>
 export default {
   name: "UpdatePost",
+  props: {
+    post:Object,
+  },
   data() {
     return {
       payload: {
-        postId: "",
-        userId: "",
-        content: "",
-        comments: "",
+        postId: this.post.postId,
+        userId: this.post.userId,
+        content: this.post.content,
+        comments: this.post.comments,
       },
     };
   },
   methods: {
-    updateProduct() {
-      this.$store.dispatch("updatePost", {
+    async updatingPost() {
+      await this.$store.dispatch("updatePost", {
         id: this.payload.postId,
         data: this.payload,
       });
