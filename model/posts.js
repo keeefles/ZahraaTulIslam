@@ -3,7 +3,7 @@ import { connection as zti } from "../config/index.js";
 class Posts {
   fetchPosts(req, res) {
     const qry = `
-        SELECT userId, postId, comments, content
+        SELECT postId, username, comments, content
         FROM Posts;
         `;
     zti.query(qry, (err, results) => {
@@ -16,7 +16,7 @@ class Posts {
   }
   fetchPost(req, res) {
     const qry = `
-        SELECT userId, postId, comments, content
+        SELECT postId, username, comments, content
         FROM Posts;
         WHERE postId = ${req.params.id};
         `;
