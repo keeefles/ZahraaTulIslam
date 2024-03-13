@@ -29,20 +29,20 @@
         </div>
         <div class="modal-body">
           <form>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <input
                 type="text"
                 class="form-control w-50 mx-auto"
                 placeholder="Post Id"
                 v-model="payload.postId"
                 />
-            </div>
+            </div> -->
             <div class="mb-3">
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
-                placeholder="User Id"
-                v-model="payload.userId"
+                placeholder="Username"
+                v-model="payload.username"
               />
             </div>
             <div class="mb-3">
@@ -92,7 +92,7 @@ export default {
     return {
       payload: {
         postId: "",
-        userId: null,
+        username: "",
         content: "",
         comments: "",
       },
