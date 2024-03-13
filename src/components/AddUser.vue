@@ -112,7 +112,7 @@
 <script>
 export default {
   name: "addUser",
-  data() {
+  data(){
     return {
       payload: {
         userId: null,
