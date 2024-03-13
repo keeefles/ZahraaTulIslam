@@ -23,10 +23,10 @@ export default createStore({
       state.user = value;
     },
     setPosts(state, value) {
-      state.products = value;
+      state.posts = value;
     },
     setPost(state, value) {
-      state.product = value;
+      state.post = value;
     },
   },
   actions: {
@@ -125,6 +125,106 @@ export default createStore({
         sweet({
           title: "Error",
           text: "An error occurred when deleting a user.",
+          icon: "error",
+          timer: 2000,
+        });
+      }
+    },
+    async addPost(context, packet) {
+      try {
+        let { msg } = await (
+          await axios.post(`${ztiURL}posts/addpost`, packet)
+        ).data;
+        console.log(msg);
+        context.dispatch("fetchPosts");
+        sweet({
+          title: "Registration",
+          text: msg,
+          icon: "success",
+          timer: 2000,
+        });
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "Please try again later",
+          icon: "error",
+          timer: 2000,
+        });
+      }
+    },
+    async fetchPosts(context) {
+      try {
+        let { results } = (await axios.get(`${ztiURL}posts`)).data;
+        if (results) {
+          context.commit("setPosts", results);
+        }
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "An error occurred when retrieving posts.",
+          icon: "error",
+          timer: 2000,
+        });
+      }
+    },
+    // async fetchPost(context, packet) {
+    //   try {
+    //     let { result } = (await axios.get(`${ztiURL}posts/${packet.id}`)).data;
+    //     if (result) {
+    //       context.commit("setPost", result);
+    //     } else {
+    //       sweet({
+    //         title: "Retrieving a single post",
+    //         text: "Post was not found",
+    //         icon: "info",
+    //         timer: 2000,
+    //       });
+    //     }
+    //   } catch (e) {
+    //     sweet({
+    //       title: "Error",
+    //       text: "A user was not found.",
+    //       icon: "error",
+    //       timer: 2000,
+    //     });
+    //   }
+    // },
+    async updatePost(context, { id, data }) {
+      console.log(id);
+      try {
+        let { update } = await axios.patch(`${ztiURL}posts/update/${id}`, data);
+        if (update) {
+          context.commit("setPost",);
+          sweet({
+            title: "Update post",
+            icon: "success",
+            timer: 2000,
+          });
+        }
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "Failed to update post",
+          icon: "error",
+          timer: 2000,
+        });
+        console.error("error updating post:", e);
+      }
+    },
+    async deletePost({ commit, dispatch }, packet) {
+      try {
+        await axios.delete(`${ztiURL}posts/delete/${packet.id}`);
+        commit("setPosts");
+        dispatch("fetchPosts");
+        sweet({
+          title: "Delete post",
+          icon: "success",
+          timer: 2000,
+        });
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "An error occurred when deleting post.",
           icon: "error",
           timer: 2000,
         });

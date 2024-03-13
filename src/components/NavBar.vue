@@ -1,6 +1,6 @@
 <template>
   <div class="Logo">
-    <img src="" alt="" />
+    <h3 class="nav-title">ZAHRAA TUL ISLAM</h3>
   </div>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
@@ -34,6 +34,11 @@
               CONTACT
             </router-link>
           </li>
+          <!-- <li class="nav-item">
+            <router-link to="/register" a class="nav-link">
+              SIGN-UP
+            </router-link>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -45,6 +50,12 @@ export default {};
 </script>
 
 <style>
+.nav-title {
+  letter-spacing: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  padding-top: 20px;
+}
 .navbar {
   background-color: #fff;
 }
@@ -76,13 +87,13 @@ body {
 }
 .nav-item a:hover {
   font-weight: bold;
-  color: #4e96d3;
+  color: #9ab4cb;
   padding: 6px;
 }
 .nav-item a.router-link-exact-active {
-  color: #4e96d3;
+  color: #9ab4cb;
   border-radius: 25px;
-  box-shadow: 0px 0px 20px 0px #4e96d3;
+  box-shadow: 0px 0px 10px 0px #9ab4cb;
   padding: 6px;
 }
 </style>
