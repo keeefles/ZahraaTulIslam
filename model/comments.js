@@ -1,10 +1,10 @@
 import { connection as zti } from "../config/index.js";
 
-class Posts {
-  fetchPosts(req, res) {
+class Comments {
+  fetchComments(req, res) {
     const qry = `
-        SELECT postId, username, content
-        FROM Posts;
+        SELECT postId, commentId, comments
+        FROM Comments;
         `;
     zti.query(qry, (err, results) => {
       if (err) throw err;
@@ -14,11 +14,11 @@ class Posts {
       });
     });
   }
-  fetchPost(req, res) {
+  fetchComment(req, res) {
     const qry = `
-        SELECT postId, username, content
-        FROM Posts;
-        WHERE postId = ${req.params.id};
+        SELECT postId, commentId, comments
+        FROM Comments;
+        WHERE commentId = ${req.params.id};
         `;
     zti.query(qry, (err, result) => {
       if (err) throw err;
@@ -28,9 +28,9 @@ class Posts {
       });
     });
   }
-  createPost(req, res) {
+  createComment(req, res) {
     const qry = `
-        INSERT INTO Posts
+        INSERT INTO Comments
         SET ?;
         `;
     zti.query(qry, [req.body], (err) => {
@@ -38,37 +38,37 @@ class Posts {
       console.log(err);
       res.json({
         status: res.statusCode,
-        msg: "New post was added",
+        msg: "New comment was added",
       });
     });
   }
-  updatePost(req, res) {
+  updateComment(req, res) {
     const qry = `
-        UPDATE Posts
+        UPDATE Comments
         SET ?
-        WHERE postId = ${req.params.id};
+        WHERE commentId = ${req.params.id};
         `;
     zti.query(qry, [req.body], (err) => {
       if (err) throw err;
       res.json({
         status: res.statusCode,
-        msg: "The post has been updated.",
+        msg: "Comment has been updated.",
       });
     });
   }
   deletePost(req, res) {
     const qry = `
-        DELETE FROM Posts
-        WHERE postId = ${req.params.id};
+        DELETE FROM Comments
+        WHERE commentId = ${req.params.id};
         `;
     zti.query(qry, (err) => {
       if (err) throw err;
       res.json({
         status: res.statusCode,
-        msg: "The post has been removed.",
+        msg: "Comment has been removed.",
       });
     });
   }
 }
 
-export { Posts };
+export { Comments };
