@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import axios from "axios";
 import sweet from "sweetalert";
+import Swal from "sweetalert2";
 import { useCookies } from "vue3-cookies";
 const { cookies } = useCookies();
 import router from "@/router";
