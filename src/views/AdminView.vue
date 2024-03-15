@@ -14,6 +14,7 @@
             <th>User Age</th>
             <th>Username</th>
             <th>Email Address</th>
+            <th>User Role</th>
             <th>Mobile Number</th>
             <th>Action</th>
           </tr>
@@ -26,6 +27,7 @@
             <td>{{ user.userAge }}</td>
             <td>{{ user.username }}</td>
             <td>{{ user.emailAdd }}</td>
+            <td>{{ user.userRole }}</td>
             <td>{{ user.mobileNumber }}</td>
             <td class="d-flex justify-content-between">
               <updateUser :user="user" @updateUser="updateUser"/>
@@ -73,6 +75,7 @@ export default {
         username: user.username,
         mobileNumber: user.mobileNumber,
         emailAdd: user.emailAdd,
+        userRole: user.userRole,
         userPass: user.userPass,
       };
       this.$store.dispatch("updateUser", { id: user.userId, data: editUser });
