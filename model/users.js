@@ -6,7 +6,7 @@ class Users {
   fetchUsers(req, res) {
     const qry = `
         SELECT userId, firstName, lastName, username, userAge,
-        emailAdd, userPass, mobileNumber
+        emailAdd, userPass, userRole, mobileNumber
         FROM Users;
         `;
     zti.query(qry, (err, results) => {
@@ -20,7 +20,7 @@ class Users {
   fetchUser(req, res) {
     const qry = `
         SELECT userId, firstName, lastName, username, userAge,
-        emailAdd, userPass, mobileNumber
+        emailAdd, userPass, userRole, mobileNumber
         FROM Users
         WHERE userId = ${req.params.id};
         `;
@@ -98,7 +98,7 @@ class Users {
     const { emailAdd, userPass } = req.body;
     const dbQry = `
             SELECT userId, firstName, lastName, username, userAge,
-            emailAdd, userPass, mobileNumber
+            emailAdd, userPass, userRole, mobileNumber
             from Users
             where emailAdd = '${emailAdd}';
             `;
