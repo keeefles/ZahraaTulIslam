@@ -139,6 +139,7 @@ export default createStore({
         });
       }
     },
+    // start of posts
     async addPost(context, packet) {
       try {
         let { msg } = await (
@@ -176,34 +177,34 @@ export default createStore({
         });
       }
     },
-    // async fetchPost(context, packet) {
-    //   try {
-    //     let { result } = (await axios.get(`${ztiURL}posts/${packet.id}`)).data;
-    //     if (result) {
-    //       context.commit("setPost", result);
-    //     } else {
-    //       sweet({
-    //         title: "Retrieving a single post",
-    //         text: "Post was not found",
-    //         icon: "info",
-    //         timer: 2000,
-    //       });
-    //     }
-    //   } catch (e) {
-    //     sweet({
-    //       title: "Error",
-    //       text: "A user was not found.",
-    //       icon: "error",
-    //       timer: 2000,
-    //     });
-    //   }
-    // },
+    async fetchPost(context, packet) {
+      try {
+        let { result } = (await axios.get(`${ztiURL}posts/${packet.id}`)).data;
+        if (result) {
+          context.commit("setPost", result);
+        } else {
+          sweet({
+            title: "Retrieving a single post",
+            text: "Post was not found",
+            icon: "info",
+            timer: 2000,
+          });
+        }
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "Post was not found.",
+          icon: "error",
+          timer: 2000,
+        });
+      }
+    },
     async updatePost(context, { id, data }) {
       console.log(id);
       try {
         let { update } = await axios.patch(`${ztiURL}posts/update/${id}`, data);
         if (update) {
-          context.commit("setPost",);
+          context.commit("setPost");
           sweet({
             title: "Update post",
             icon: "success",
@@ -239,6 +240,7 @@ export default createStore({
         });
       }
     },
+    // start of comments
     async addComment(context, packet) {
       try {
         let { msg } = await (
@@ -276,34 +278,38 @@ export default createStore({
         });
       }
     },
-    // async fetchPost(context, packet) {
-    //   try {
-    //     let { result } = (await axios.get(`${ztiURL}posts/${packet.id}`)).data;
-    //     if (result) {
-    //       context.commit("setPost", result);
-    //     } else {
-    //       sweet({
-    //         title: "Retrieving a single post",
-    //         text: "Post was not found",
-    //         icon: "info",
-    //         timer: 2000,
-    //       });
-    //     }
-    //   } catch (e) {
-    //     sweet({
-    //       title: "Error",
-    //       text: "A user was not found.",
-    //       icon: "error",
-    //       timer: 2000,
-    //     });
-    //   }
-    // },
+    async fetchComment(context, packet) {
+      try {
+        let { result } = (await axios.get(`${ztiURL}comments/${packet.id}`))
+          .data;
+        if (result) {
+          context.commit("setComment", result);
+        } else {
+          sweet({
+            title: "Retrieving a single comment",
+            text: "Comment was not found",
+            icon: "info",
+            timer: 2000,
+          });
+        }
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "Comment was not found.",
+          icon: "error",
+          timer: 2000,
+        });
+      }
+    },
     async updateComment(context, { id, data }) {
       console.log(id);
       try {
-        let { update } = await axios.patch(`${ztiURL}comments/update/${id}`, data);
+        let { update } = await axios.patch(
+          `${ztiURL}comments/update/${id}`,
+          data
+        );
         if (update) {
-          context.commit("setComment",);
+          context.commit("setComment");
           sweet({
             title: "Update comment",
             icon: "success",
@@ -339,39 +345,81 @@ export default createStore({
         });
       }
     },
-    async login(context, packet) {
+    // async login(context, packet) {
+    //   try {
+    //     const { msg, token, result } = (
+    //       await axios.post(`${ztiURL}users/login`, packet)
+    //     ).data;
+    //     if (result) {
+    //       context.commit("setUser", { msg, result });
+    //       cookies.set("LegitUser", {
+    //         msg,
+    //         token,
+    //         result,
+    //       });
+    //       AuthenticateUser.applyToken(token);
+    //       sweet({
+    //         title: msg,
+    //         text: `Welcome back,
+    //         ${result?.firstName} ${result?.lastName}`,
+    //         icon: "success",
+    //         timer: 2000,
+    //       });
+    //       router.push({ name: "home" });
+    //     } else {
+    //       sweet({
+    //         title: "info",
+    //         text: msg,
+    //         icon: "info",
+    //         timer: 2000,
+    //       });
+    //     }
+    //   } catch (e) {
+    //     sweet({
+    //       title: "Error",
+    //       text: "Failed to login.",
+    //       icon: "error",
+    //       timer: 2000,
+    //     });
+    //   }
+    // },
+    async login(context, payload) {
       try {
-        const { msg, token, result } = (
-          await axios.post(`${ztiURL}users/login`, packet)
-        ).data;
-        if (result) {
-          context.commit("setUser", { msg, result });
-          cookies.set("LegitUser", {
+        const response = await axios.post(
+          "https://zahraatulislam.onrender.com/",
+          payload
+        );
+        const { msg, token, result } = response.data;
+
+        if (token) {
+          context.commit("setUser", result);
+          applyToken(token);
+          document.cookie = `userAuthenticated=${JSON.stringify({
             msg,
             token,
             result,
-          });
-          AuthenticateUser.applyToken(token);
-          sweet({
+          })}; path=/`;
+          Swal.fire({
             title: msg,
-            text: `Welcome back,
-            ${result?.firstName} ${result?.lastName}`,
+            text: `Welcome back, ${result.firstName} ${result.lastName}`,
             icon: "success",
             timer: 2000,
           });
-          router.push({ name: "home" });
+
+          router.push({ name: "admin" });
         } else {
-          sweet({
-            title: "info",
+          Swal.fire({
+            title: "Info",
             text: msg,
             icon: "info",
             timer: 2000,
           });
         }
-      } catch (e) {
-        sweet({
+      } catch (error) {
+        console.error("Error during login:", error);
+        Swal.fire({
           title: "Error",
-          text: "Failed to login.",
+          text: "Failed to login. Please try again later.",
           icon: "error",
           timer: 2000,
         });
