@@ -1,29 +1,26 @@
 <template>
   <div>
     <br />
-    <h2>Posts Table</h2>
+    <h2>Comments Table</h2>
     <br />
-    <addPost />
+    <addComment />
     <div class="container table-responsive">
       <table class="table">
         <thead class="table-dark">
           <tr>
-            <th>Post Id</th>
-            <th>Username</th>
-            <th>Content</th>
+            <th>Comment Id</th>
+            <th>Comments</th>
             <th>Action</th>
           </tr>
         </thead>
-        <tbody v-if="posts">
-          <tr v-for="post in posts" :key="post.postId">
-            <td>{{ post.postId }}</td>
-            <td>{{ post.username }}</td>
-            <td>{{ post.content }}</td>
+        <tbody v-if="comments">
+          <tr v-for="comment in comments" :key="comment.commentId">
+            <td>{{ comment.comments }}</td>
             <td class="d-flex justify-content-between">
-              <updatePost :post="post" @updatePost="updatePost" />
+              <updateComment :comment="comment" @updateComment="updateComment" />
               <button
                 class="btn btn-success deleteButton"
-                @click="deletePost(post.postId)"
+                @click="deleteComment(comment.commentId)"
               >
                 Delete
               </button>
@@ -36,33 +33,33 @@
 </template>
 
 <script>
-import updatePost from "@/components/UpdatePost.vue";
-import addPost from "@/components/AddPost.vue";
+import updateComment from "@/components/UpdateComment.vue";
+import addComment from "@/components/AddComment.vue";
 
 export default {
   components: {
-    updatePost,
-    addPost,
+    updateComment,
+    addComment,
   },
   computed: {
     posts() {
-      return this.$store.state.posts;
+      return this.$store.state.comments;
     },
   },
   mounted() {
-    this.$store.dispatch("fetchPosts");
+    this.$store.dispatch("fetchComments");
   },
   methods: {
-    deletePost(postId) {
-      this.$store.dispatch("deletePost", { id: postId });
+    deleteComment(commentId) {
+      this.$store.dispatch("deleteComment", { id: commentId });
     },
-    updatePost(post) {
-      let editPost = {
-        postId: post.postId,
-        username: post.username,
-        content: post.content,
+    updateComment(comment) {
+      let editComment = {
+        postId: comment.postId,
+        commentId: comment.commentId,
+        comments: comment.comments,
       };
-      this.$store.dispatch("updatePost", { id: post.postId, data: editPost });
+      this.$store.dispatch("updateComment", { id: comment.commentId, data: editComment });
     },
   },
 };

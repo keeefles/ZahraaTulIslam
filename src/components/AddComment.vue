@@ -5,7 +5,7 @@
     data-bs-toggle="modal"
     data-bs-target="#exampleModal"
   >
-    Add Post
+    Add Comments
   </button>
   <div
     class="modal fade"
@@ -17,9 +17,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">
-            Create Post
-        </h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Create Post</h1>
           <button
             type="button"
             class="btn-close"
@@ -30,27 +28,27 @@
         <div class="modal-body">
           <form>
             <!-- <div class="mb-3">
-                <input
+              <input
                 type="text"
                 class="form-control w-50 mx-auto"
                 placeholder="Post Id"
                 v-model="payload.postId"
-                />
+              />
             </div> -->
             <div class="mb-3">
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
-                placeholder="Username"
-                v-model="payload.username"
+                placeholder="Comment ID"
+                v-model="payload.commentId"
               />
             </div>
             <div class="mb-3">
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
-                placeholder="Post Content"
-                v-model="payload.content"
+                placeholder="Comments"
+                v-model="payload.comments"
               />
             </div>
             <div class="modal-footer">
@@ -63,7 +61,7 @@
               </button>
               <button
                 type="submit"
-                @click.prevent="addingPost"
+                @click.prevent="addingComment"
                 class="btn btn-success"
                 data-bs-dismiss="modal"
               >
@@ -79,21 +77,21 @@
 
 <script>
 export default {
-  name: "addPost",
+  name: "addComment",
   data() {
     return {
       payload: {
         postId: "",
-        username: "",
-        content: "",
+        commentId: "",
+        comments: "",
       },
     };
   },
   methods: {
-    addingPost() {
+    addingComment() {
       console.log(this.payload);
       try {
-        this.$store.dispatch("addPost", this.payload);
+        this.$store.dispatch("addComment", this.payload);
       } catch (error) {
         console.error(error);
       }
