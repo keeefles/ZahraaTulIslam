@@ -13,6 +13,8 @@ export default createStore({
     user: null,
     posts: null,
     post: null,
+    comments: null,
+    comment: null,
   },
   getters: {},
   mutations: {
@@ -27,6 +29,12 @@ export default createStore({
     },
     setPost(state, value) {
       state.post = value;
+    },
+    setComments(state, value) {
+      state.comments = value;
+    },
+    setComment(state, value) {
+      state.comment = value;
     },
   },
   actions: {
@@ -225,6 +233,106 @@ export default createStore({
         sweet({
           title: "Error",
           text: "An error occurred when deleting post.",
+          icon: "error",
+          timer: 2000,
+        });
+      }
+    },
+    async addComment(context, packet) {
+      try {
+        let { msg } = await (
+          await axios.post(`${ztiURL}comments/add`, packet)
+        ).data;
+        console.log(msg);
+        context.dispatch("fetchComments");
+        sweet({
+          title: "Registration",
+          text: msg,
+          icon: "success",
+          timer: 2000,
+        });
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "Please try again later",
+          icon: "error",
+          timer: 2000,
+        });
+      }
+    },
+    async fetchComments(context) {
+      try {
+        let { results } = (await axios.get(`${ztiURL}comments`)).data;
+        if (results) {
+          context.commit("setComments", results);
+        }
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "An error occurred when retrieving comments.",
+          icon: "error",
+          timer: 2000,
+        });
+      }
+    },
+    // async fetchPost(context, packet) {
+    //   try {
+    //     let { result } = (await axios.get(`${ztiURL}posts/${packet.id}`)).data;
+    //     if (result) {
+    //       context.commit("setPost", result);
+    //     } else {
+    //       sweet({
+    //         title: "Retrieving a single post",
+    //         text: "Post was not found",
+    //         icon: "info",
+    //         timer: 2000,
+    //       });
+    //     }
+    //   } catch (e) {
+    //     sweet({
+    //       title: "Error",
+    //       text: "A user was not found.",
+    //       icon: "error",
+    //       timer: 2000,
+    //     });
+    //   }
+    // },
+    async updateComment(context, { id, data }) {
+      console.log(id);
+      try {
+        let { update } = await axios.patch(`${ztiURL}comments/update/${id}`, data);
+        if (update) {
+          context.commit("setComment",);
+          sweet({
+            title: "Update comment",
+            icon: "success",
+            timer: 2000,
+          });
+        }
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "Failed to update comment",
+          icon: "error",
+          timer: 2000,
+        });
+        console.error("error updating comment:", e);
+      }
+    },
+    async deleteComment({ commit, dispatch }, packet) {
+      try {
+        await axios.delete(`${ztiURL}comments/delete/${packet.id}`);
+        commit("setComments");
+        dispatch("fetchComments");
+        sweet({
+          title: "Delete comment",
+          icon: "success",
+          timer: 2000,
+        });
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "An error occurred when deleting comment.",
           icon: "error",
           timer: 2000,
         });
