@@ -11,7 +11,6 @@
             <th>Post Id</th>
             <th>Username</th>
             <th>Content</th>
-            <th>Comments</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -20,7 +19,6 @@
             <td>{{ post.postId }}</td>
             <td>{{ post.username }}</td>
             <td>{{ post.content }}</td>
-            <td>{{ post.comments }}</td>
             <td class="d-flex justify-content-between">
               <updatePost :post="post" @updatePost="updatePost" />
               <button
@@ -63,7 +61,6 @@ export default {
         postId: post.postId,
         username: post.username,
         content: post.content,
-        comments: post.comments,
       };
       this.$store.dispatch("updatePost", { id: post.postId, data: editPost });
     },

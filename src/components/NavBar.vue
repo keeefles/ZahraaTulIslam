@@ -30,6 +30,9 @@
             <router-link to="/admin" a class="nav-link"> ADMIN </router-link>
           </li>
           <li class="nav-item">
+            <router-link to="/register" a class="nav-link"> register </router-link>
+          </li>
+          <li class="nav-item">
             <router-link to="/contact" a class="nav-link">
               CONTACT
             </router-link>
