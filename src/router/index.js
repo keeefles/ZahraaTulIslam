@@ -17,8 +17,8 @@ const routes = [
     component: () => import('@/views/RegisterView.vue')
   },
   {
-    path: '/manageposts',
-    name: 'manageposts',
+    path: '/manage',
+    name: 'manage',
     component: () => import('@/views/ManagePostView.vue')
   },
   {
