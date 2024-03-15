@@ -31,7 +31,7 @@ app.use(
     cors()
 )
 
-app.get('^/$|/nodetest', (req, res)=>{
+app.get('^/$|/zahraatulislam', (req, res)=>{
     res.status(200).sendFile(path.join(__dirname, './static/index.html'))
 })
 

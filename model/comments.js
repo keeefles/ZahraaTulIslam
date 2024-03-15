@@ -28,7 +28,7 @@ class Comments {
       });
     });
   }
-  createComment(req, res) {
+  addComment(req, res) {
     const qry = `
         INSERT INTO Comments
         SET ?;
