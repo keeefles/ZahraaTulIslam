@@ -56,7 +56,7 @@ class Comments {
       });
     });
   }
-  deletePost(req, res) {
+  deleteComment(req, res) {
     const qry = `
         DELETE FROM Comments
         WHERE commentId = ${req.params.id};
