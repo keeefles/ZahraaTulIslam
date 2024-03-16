@@ -184,23 +184,17 @@ export default {
 </script>
 
 <style scoped>
-.modalButton {
-  height: 52px;
-  margin: auto;
-  margin-bottom: 10px;
-  background-color: rgb(39, 142, 86);
+.btn {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 15px;
+  background: teal;
   color: white;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 0 20px;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.modalButton:hover {
-  background-color: rgb(35, 211, 105);
-  color: white;
-  transform: translateY(-2px);
+
+.btn:active {
+  box-shadow: none;
 }
 </style>

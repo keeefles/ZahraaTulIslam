@@ -116,4 +116,18 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.btn {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 15px;
+  background: teal;
+  color: white;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn:active {
+  box-shadow: none;
+}
+</style>
