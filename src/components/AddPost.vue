@@ -28,7 +28,7 @@
           ></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form @submit.prevent="addingPost">
             <!-- <div class="mb-3">
                 <input
                 type="text"
@@ -63,7 +63,7 @@
               </button>
               <button
                 type="submit"
-                @click.prevent="addingPost"
+                
                 class="btn btn-success"
                 data-bs-dismiss="modal"
               >
@@ -83,7 +83,7 @@ export default {
   data() {
     return {
       payload: {
-        postId: "",
+        // postId: "",
         username: "",
         content: "",
       },

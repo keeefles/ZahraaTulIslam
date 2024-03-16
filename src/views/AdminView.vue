@@ -89,6 +89,7 @@
       <table class="table">
         <thead class="table-dark">
           <tr>
+            <th>Username</th>
             <th>Comment Id</th>
             <th>Comments</th>
             <th>Action</th>
@@ -96,6 +97,7 @@
         </thead>
         <tbody v-if="comments">
           <tr v-for="comment in comments" :key="comment.commentId">
+            <td>{{ comment.username }}</td>
             <td>{{ comment.commentId }}</td>
             <td>{{ comment.comments }}</td>
             <td class="d-flex justify-content-between">
@@ -175,6 +177,7 @@ export default {
     updateComment(comment) {
       let editComment = {
         postId: this.comment.postId,
+        username: this.comment.username,
         commentId: this.comment.commentId,
         comments: this.comment.comments,
       };
