@@ -17,7 +17,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Create Post</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Create Comment</h1>
           <button
             type="button"
             class="btn-close"
@@ -43,6 +43,14 @@
                 v-model="payload.commentId"
               />
             </div> -->
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control w-50 mx-auto"
+                placeholder="Username"
+                v-model="payload.username"
+              />
+            </div>
             <div class="mb-3">
               <input
                 type="text"
@@ -81,8 +89,9 @@ export default {
   data() {
     return {
       payload: {
-        postId: "",
-        commentId: "",
+        // postId: "",
+        // commentId: "",
+        username: "",
         comments: "",
       },
     };
