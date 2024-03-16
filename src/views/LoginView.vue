@@ -1,52 +1,60 @@
 <template>
-    <div>
-        <div class="form-container">
+  <div class="outerCont">
+    <div class="form-container">
       <p class="title">Welcome back</p>
       <form class="form">
-        <input type="email" class="input" placeholder="Email">
-        <input type="password" class="input" placeholder="Password">
-        <p class="page-link">
-          <span class="page-link-label">Forgot Password?</span>
-        </p>
+        <input type="email" class="input" placeholder="Email" />
+        <input type="password" class="input" placeholder="Password" />
         <button class="form-btn">Log in</button>
       </form>
       <p class="sign-up-label">
-        Don't have an account?<a class="sign-up-link">Sign up</a>
+        Don't have an account? <router-link to="/register" a class="sign-up-link"> Sign Up </router-link>
       </p>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {};
 </script>
 
 <style scoped>
+.outerCont {
+  padding: 20px;
+}
 .form-container {
   width: 350px;
-  height: 500px;
+  height: 420px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 10px;
   box-sizing: border-box;
-  padding: 20px 30px;
+  padding: 30px 30px;
+  display: inline-block;
 }
 
 .title {
   text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   margin: 10px 0 30px 0;
   font-size: 28px;
   font-weight: 800;
+}
+
+.sub-title {
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 9px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .form {
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 18px;
   margin-bottom: 15px;
 }
@@ -59,30 +67,11 @@
   padding: 12px 15px;
 }
 
-.page-link {
-  text-decoration: underline;
-  margin: 0;
-  text-align: end;
-  color: #747474;
-  text-decoration-color: #747474;
-}
-
-.page-link-label {
-  cursor: pointer;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 9px;
-  font-weight: 700;
-}
-
-.page-link-label:hover {
-  color: #000;
-}
-
 .form-btn {
   padding: 10px 15px;
+  margin-top: 20px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   border-radius: 20px;
   border: 0 !important;
   outline: 0 !important;
@@ -101,7 +90,7 @@
   font-size: 10px;
   color: #747474;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .sign-up-link {
@@ -112,16 +101,5 @@
   color: teal;
   cursor: pointer;
   font-weight: 800;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-.buttons-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 20px;
-  gap: 15px;
 }
 </style>

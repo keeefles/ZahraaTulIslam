@@ -14,7 +14,7 @@ export default createStore({
     user: null,
     posts: null,
     post: null,
-    comments: null,
+    comments: [],
     comment: null,
   },
   getters: {},
@@ -266,6 +266,7 @@ export default createStore({
     async fetchComments(context) {
       try {
         let { results } = (await axios.get(`${ztiURL}comments`)).data;
+        console.log(results);
         if (results) {
           context.commit("setComments", results);
         }

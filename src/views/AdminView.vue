@@ -171,6 +171,7 @@ export default {
     deleteComment(commentId) {
       this.$store.dispatch("deleteComment", { id: commentId });
     },
+    // hello world
     updateComment(comment) {
       let editComment = {
         postId: this.comment.postId,

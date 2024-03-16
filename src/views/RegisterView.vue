@@ -1,78 +1,4 @@
 <template>
-  <!-- <div class="container">
-    <h2 class="head">Sign Up</h2>
-    <form class="formCont">
-      <div class="mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="First Name"
-          v-model="payload.firstName"
-        />
-      </div>
-      <div class="mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Last Name"
-          v-model="payload.lastName"
-        />
-      </div>
-      <div class="mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Age"
-          v-model="payload.userAge"
-        />
-      </div>
-      <div class="mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Username"
-          v-model="payload.username"
-        />
-      </div>
-      <div class="mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Email Address"
-          v-model="payload.emailAdd"
-        />
-      </div>
-      <div class="mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Mobile Number"
-          v-model="payload.mobileNumber"
-        />
-      </div>
-      <div class="mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="User Password"
-          v-model="payload.userPass"
-        />
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button
-          type="submit"
-          @click.prevent="addingUser"
-          class="btn btn-success"
-          data-bs-dismiss="modal"
-        >
-          Add User
-        </button>
-      </div>
-    </form>
-  </div> -->
   <div class="outerCont">
     <div class="form-container">
       <p class="title">Create an account</p>
@@ -113,7 +39,7 @@
         </button>
       </form>
       <p class="sign-up-label">
-        Already have an account? <a href="./LoginView.vue" class="sign-up-link">Log in</a>
+        Already have an account? <router-link to="/login" a class="sign-up-link"> Log In </router-link>
       </p>
     </div>
   </div>
@@ -149,24 +75,6 @@ export default {
 </script>
 
 <style scoped>
-/* input {
-  border: 1px #999 solid;
-  border-radius: 15px;
-  width: 280px;
-  display: inline-block;
-  justify-content: center;
-}
-.container {
-  padding: 50px;
-  background-image: url("https://iili.io/JWpzVjt.md.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.head {
-  margin-bottom: 20px;
-  background-color: white;
-  width: 100px;
-} */
 .outerCont {
   padding: 20px;
 }
