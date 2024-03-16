@@ -35,6 +35,9 @@
           <li class="nav-item">
             <router-link to="/contact" a class="nav-link"> CONTACT </router-link>
           </li>
+          <li class="nav-item">
+            <router-link to="/profile" a class="nav-link"> PROFILE </router-link>
+          </li>
           <!-- <li class="nav-item">
             <router-link to="/register" a class="nav-link">
               SIGN-UP

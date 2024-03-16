@@ -3,7 +3,6 @@
   <div>
     <br />
     <h2>Users Table</h2>
-    <br />
     <addUser />
     <div class="container table-responsive">
       <table class="table">
@@ -48,7 +47,6 @@
   <div>
     <br />
     <h2>Posts Table</h2>
-    <br />
     <addPost />
     <div class="container table-responsive">
       <table class="table">
@@ -83,22 +81,21 @@
   <div>
     <br />
     <h2>Comments Table</h2>
-    <br />
     <addComment />
     <div class="container table-responsive">
       <table class="table">
         <thead class="table-dark">
           <tr>
-            <th>Username</th>
             <th>Comment Id</th>
+            <th>Username</th>
             <th>Comments</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody v-if="comments">
           <tr v-for="comment in comments" :key="comment.commentId">
-            <td>{{ comment.username }}</td>
             <td>{{ comment.commentId }}</td>
+            <td>{{ comment.username }}</td>
             <td>{{ comment.comments }}</td>
             <td class="d-flex justify-content-between">
               <updateComment
@@ -106,7 +103,7 @@
                 @updateComment="updateComment"
               />
               <button
-                class="btn btn-success deleteButton"
+                class="btn"
                 @click="deleteComment(comment.commentId)"
               >
                 Delete
@@ -173,7 +170,6 @@ export default {
     deleteComment(commentId) {
       this.$store.dispatch("deleteComment", { id: commentId });
     },
-    // hello world
     updateComment(comment) {
       let editComment = {
         postId: this.comment.postId,
@@ -207,10 +203,31 @@ export default {
 <style scoped>
 td {
   padding: 10px;
+  text-align: left;
+  width: fit-content;
+  align-items: center;
 }
 @media (max-width: 351px) {
   td {
     padding: 20px;
   }
 }
+.btn {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 15px;
+  background: teal;
+  color: white;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+table {
+  width: max-content;
+  display: inline-block;
+}
+
+.btn:active {
+  box-shadow: none;
+}
+
 </style>
