@@ -3,13 +3,13 @@
     type="button"
     class="btn"
     data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
+    data-bs-target="#addCommentsModal"
   >
     Add Comments
   </button>
   <div
     class="modal fade"
-    id="exampleModal"
+    id="addCommentsModal"
     tabindex="-1"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
@@ -35,14 +35,14 @@
                 v-model="payload.postId"
               />
             </div> -->
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
                 placeholder="Comment ID"
                 v-model="payload.commentId"
               />
-            </div>
+            </div> -->
             <div class="mb-3">
               <input
                 type="text"

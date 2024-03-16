@@ -3,13 +3,13 @@
     type="button"
     class="btn"
     data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
+    data-bs-target="#addPostModal"
   >
     Add Post
   </button>
   <div
     class="modal fade"
-    id="exampleModal"
+    id="addPostModal"
     tabindex="-1"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"

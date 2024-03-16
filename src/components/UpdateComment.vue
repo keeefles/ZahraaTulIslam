@@ -84,7 +84,7 @@
 export default {
   name: "UpdateComment",
   props: {
-    post: Object,
+    comment: Object,
   },
   data() {
     return {
