@@ -93,13 +93,13 @@ body {
 }
 .nav-item a:hover {
   font-weight: bold;
-  color: #9ab4cb;
+  color: teal;
   padding: 6px;
 }
 .nav-item a.router-link-exact-active {
-  color: #9ab4cb;
+  color: teal;
   border-radius: 25px;
-  box-shadow: 0px 0px 10px 0px #9ab4cb;
+  box-shadow: 0px 0px 10px 0px teal;
   padding: 6px;
 }
 </style>
