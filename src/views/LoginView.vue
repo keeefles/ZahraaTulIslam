@@ -11,7 +11,7 @@
         <button class="form-btn">Log in</button>
       </form>
       <p class="sign-up-label">
-        Don't have an account?<span class="sign-up-link">Sign up</span>
+        Don't have an account?<a class="sign-up-link">Sign up</a>
       </p>
     </div>
     </div>

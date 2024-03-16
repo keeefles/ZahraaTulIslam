@@ -89,9 +89,9 @@ export default {
   data() {
     return {
       payload: {
-        postId: this.post.postId,
-        commentId: this.post.commentId,
-        comments: this.post.comments,
+        postId: this.comment.postId,
+        commentId: this.comment.commentId,
+        comments: this.comment.comments,
       },
     };
   },

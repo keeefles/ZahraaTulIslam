@@ -17,11 +17,6 @@ const routes = [
     component: () => import('@/views/RegisterView.vue')
   },
   {
-    path: '/manage',
-    name: 'manage',
-    component: () => import('@/views/ManagePostView.vue')
-  },
-  {
     path: '/admin',
     name: 'admin',
     component: () => import('@/views/AdminView.vue')
