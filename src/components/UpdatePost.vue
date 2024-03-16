@@ -1,18 +1,15 @@
 <template>
-  <!-- Button trigger modal -->
   <button
     type="button"
     class="btn modalButton"
     data-bs-toggle="modal"
-    :data-bs-target="'#updateProductModal'+post.postId"
+    :data-bs-target="'#updateProductModal' + post.postId"
   >
     Update Post
   </button>
-
-  <!-- Modal -->
   <div
     class="modal fade"
-    :id="'updateProductModal'+post.postId"
+    :id="'updateProductModal' + post.postId"
     tabindex="-1"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
@@ -20,9 +17,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">
-            Update Post
-          </h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Update Post</h1>
           <button
             type="button"
             class="btn-close"
@@ -32,14 +27,6 @@
         </div>
         <div class="modal-body">
           <form @submit.prevent="updatePost">
-            <!-- <div class="mb-3">
-                <input
-                type="text"
-                class="form-control w-50 mx-auto"
-                placeholder="Post Id"
-                v-model="payload.postId"
-                />
-            </div> -->
             <div class="mb-3">
               <input
                 type="text"
@@ -54,14 +41,6 @@
                 class="form-control w-50 mx-auto"
                 placeholder="Post Content"
                 v-model="payload.content"
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control w-50 mx-auto"
-                placeholder="Comments"
-                v-model="payload.comments"
               />
             </div>
             <div class="modal-footer">
@@ -92,7 +71,7 @@
 export default {
   name: "UpdatePost",
   props: {
-    post:Object,
+    post: Object,
   },
   data() {
     return {
@@ -100,7 +79,6 @@ export default {
         postId: this.post.postId,
         username: this.post.username,
         content: this.post.content,
-        comments: this.post.comments,
       },
     };
   },
