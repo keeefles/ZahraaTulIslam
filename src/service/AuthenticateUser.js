@@ -6,6 +6,6 @@ function applyToken(token) {
     };
   }
 }
-export default {
+export {
   applyToken,
 };
