@@ -123,6 +123,7 @@ import updateComment from "@/components/UpdateComment.vue";
 import addComment from "@/components/AddComment.vue";
 import updatePost from "@/components/UpdatePost.vue";
 import addPost from "@/components/AddPost.vue";
+import Spinner from "@/components/Spinner.vue";
 
 export default {
   components: {
@@ -132,6 +133,7 @@ export default {
     addComment,
     updatePost,
     addPost,
+    Spinner,
   },
   computed: {
     users() {
@@ -219,15 +221,16 @@ td {
   background: teal;
   color: white;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: 0.3s linear;
 }
 table {
   width: max-content;
   display: inline-block;
 }
 
-.btn:active {
-  box-shadow: none;
+.btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #a7926e;
+  border: none;
 }
-
 </style>
