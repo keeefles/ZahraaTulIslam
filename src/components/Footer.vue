@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <p class="footer">Zahraatul Islam &copy; <span>{{ currYear }}</span></p>
+  </div>
 </template>
 
 <script>

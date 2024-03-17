@@ -6,7 +6,7 @@
     data-bs-toggle="modal"
     :data-bs-target="'#updateUserModal'+user.userId"
   >
-    Update User
+    Update
   </button>
 
   <!-- Modal -->
@@ -191,10 +191,12 @@ export default {
   background: teal;
   color: white;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: 0.3s linear;
 }
 
-.btn:active {
-  box-shadow: none;
+.btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: none;
+  background-color: #a7926e;
 }
 </style>

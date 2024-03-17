@@ -3,7 +3,7 @@
     <h3 class="nav-title">ZAHRAA TUL ISLAM</h3>
   </div>
   <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
+    <div class="container">
       <button
         class="navbar-toggler"
         type="button"
