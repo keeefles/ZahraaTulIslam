@@ -40,7 +40,7 @@
 
 <script>
 export default {
-  name: "SpinnerComp",
+  name: "Spinner",
   data() {
     return {
       isloading: true,

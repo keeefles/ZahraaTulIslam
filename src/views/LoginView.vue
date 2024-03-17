@@ -3,9 +3,11 @@
     <div class="form-container">
       <p class="title">Welcome back</p>
       <form class="form">
-        <input type="email" class="input" placeholder="Email" />
-        <input type="password" class="input" placeholder="Password" />
-        <button class="form-btn">Log in</button>
+        <input type="email" class="input" placeholder="Email" 
+        v-model="payload.emailAdd"/>
+        <input type="password" class="input" placeholder="Password" 
+        v-model="payload.userPass"/>
+        <button type="button" class="form-btn" @click="login">Log in</button>
       </form>
       <p class="sign-up-label">
         Don't have an account? <router-link to="/register" a class="sign-up-link"> Sign Up </router-link>
@@ -15,7 +17,26 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      payload: {
+        emailAdd: "",
+        userPass: "",
+      }
+    }
+  },
+  computed: {
+    users() {
+      return this.$store.state.users;
+    }
+  },
+  methods: {
+    login() {
+      this.$store.dispatch('login', this.payload.user);
+    }
+  }
+};
 </script>
 
 <style scoped>

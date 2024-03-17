@@ -1,10 +1,13 @@
 <template>
   <div class="container-fluid">
-    <div class="col">
-      this is the home page.
-      
+    <div class="row">
+      <div class="col">
+        <img src="https://iili.io/JXqtH2p.md.jpg" class="homeImg" alt="" />
+      </div>
+      <div class="col">
+        <p>welcome to zahraa tul islam</p>
+      </div>
     </div>
-    <div class="col"></div>
   </div>
 </template>
 
@@ -14,3 +17,11 @@ export default {
   components: {},
 };
 </script>
+
+<style>
+.homeImg {
+  width: 100%;
+  margin-left: -25px;
+  padding-top: 20px;
+}
+</style>
