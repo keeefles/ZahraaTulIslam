@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { useCookies } from "vue3-cookies";
 const { cookies } = useCookies();
 import router from "@/router";
-import AuthenticateUser from "../service/AuthenticateUser";
+import { applyToken } from '../service/AuthenticateUser';
 const ztiURL = "https://zahraatulislam.onrender.com/";
 
 export default createStore({
@@ -387,7 +387,7 @@ export default createStore({
     async login(context, payload) {
       try {
         const response = await axios.post(
-          "https://zahraatulislam.onrender.com/",
+          "https://zahraatulislam.onrender.com/users/login",
           payload
         );
         const { msg, token, result } = response.data;
@@ -395,7 +395,7 @@ export default createStore({
         if (token) {
           context.commit("setUser", result);
           applyToken(token);
-          document.cookie = `userAuthenticated=${JSON.stringify({
+          document.cookie = `AuthenticateUser=${JSON.stringify({
             msg,
             token,
             result,
