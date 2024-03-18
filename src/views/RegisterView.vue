@@ -77,6 +77,7 @@ export default {
 <style scoped>
 .outerCont {
   padding: 20px;
+  background-image: url("https://iili.io/JXRe4iG.md.jpg");
 }
 .form-container {
   width: 350px;

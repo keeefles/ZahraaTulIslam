@@ -66,7 +66,7 @@ export default {};
 
 <style scoped>
 .contact-form {
-  /* background-image: url("https://iili.io/JXf1bCN.md.jpg"); */
+  background-image: url("https://iili.io/JXRe4iG.md.jpg");
   justify-content: center;
   grid-template-rows: 1fr auto 1fr;
   display: flex;

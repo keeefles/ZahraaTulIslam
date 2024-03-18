@@ -392,6 +392,8 @@ export default createStore({
         );
         const { msg, token, result } = response.data;
 
+        const [user] = result
+
         if (token) {
           context.commit("setUser", result);
           applyToken(token);
@@ -407,7 +409,7 @@ export default createStore({
             timer: 2000,
           });
 
-          router.push({ name: "admin" });
+          router.push({ name: "profile" });
         } else {
           Swal.fire({
             title: "Info",
