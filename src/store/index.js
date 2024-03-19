@@ -125,10 +125,22 @@ export default createStore({
         await axios.delete(`${ztiURL}users/delete/${packet.id}`);
         commit("setUsers");
         dispatch("fetchUsers");
-        sweet({
-          title: "Delete user",
-          icon: "success",
-          timer: 2000,
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+          }
         });
       } catch (e) {
         sweet({
@@ -169,6 +181,7 @@ export default createStore({
           context.commit("setPosts", results);
         }
       } catch (e) {
+        console.log(e);
         sweet({
           title: "Error",
           text: "An error occurred when retrieving posts.",
@@ -226,10 +239,22 @@ export default createStore({
         await axios.delete(`${ztiURL}posts/delete/${packet.id}`);
         commit("setPosts");
         dispatch("fetchPosts");
-        sweet({
-          title: "Delete post",
-          icon: "success",
-          timer: 2000,
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+          }
         });
       } catch (e) {
         sweet({
@@ -332,10 +357,22 @@ export default createStore({
         await axios.delete(`${ztiURL}comments/delete/${packet.id}`);
         commit("setComments");
         dispatch("fetchComments");
-        sweet({
-          title: "Delete comment",
-          icon: "success",
-          timer: 2000,
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+          }
         });
       } catch (e) {
         sweet({

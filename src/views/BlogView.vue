@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="row" v-for="post in posts" v-if="posts">
-      <Card>
+    <div class="row" v-if="posts">
+      <Card v-for="post in posts" :key="post.postId">
         <template #card-header>
           <h4 class="card-title">{{ posts.username }}</h4>
         </template>
@@ -9,9 +9,11 @@
           <p class="card-text text-dark bg-gradient bg-dark-subtle p-2">
             {{ posts.content }}
           </p>
-          <button class="btn" @click="comments">Comment</button>
+          <button class="btn" @click="comments">
+            Comment
+          </button>
           <button class="btn">
-            <router-link to="/posts"> </router-link>
+            <router-link to="/blog"> </router-link>
           </button>
         </template>
       </Card>
@@ -34,12 +36,12 @@ export default {
       return this.$store.state.posts;
     },
     comments() {
-      return this.$store.state.comment;
+      return this.$store.state.comments;
     },
   },
   mounted() {
-    this.$store.dispatch("fetchPosts", this.$route.params);
-    this.$store.dispatch("fetchComment", this.$route.params);
+    this.$store.dispatch("fetchPosts");
+    this.$store.dispatch("fetchComments");
   },
 };
 </script>

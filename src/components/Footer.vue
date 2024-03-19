@@ -5,7 +5,7 @@
         <h2 class="h6 col1" js-footer="toggle">About the Developer:</h2>
         <ul js-footer="menu">
           <li>
-            <i class="bi bi-whatsapp"> +27 (0)79 866 6734</i>
+            <i class="bi bi-whatsapp"> +27 79 866 6734</i>
           </li>
           <li>
             <i class="bi bi-instagram"><a href="https://www.instagram.com/_aakeefahjones_/" target="_blank"> _aakeefahjones_</a></i><br>
