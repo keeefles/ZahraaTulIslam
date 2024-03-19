@@ -392,8 +392,6 @@ export default createStore({
         );
         const { msg, token, result } = response.data;
 
-        const [user] = result
-
         if (token) {
           context.commit("setUser", result);
           applyToken(token);
@@ -424,6 +422,33 @@ export default createStore({
           title: "Error",
           text: "Failed to login. Please try again later.",
           icon: "error",
+          timer: 2000,
+        });
+      }
+    },
+    async logout({ commit }) {
+      try {
+        // Remove the 'userAuthenticated' cookie
+        document.cookie = 'AuthenticateUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    
+        // Optionally, reset the user state
+        commit('setUser', null);
+    
+        // Redirect the user to the login page or any other appropriate action
+        router.push('/login');
+    
+        Swal.fire({
+          title: 'Logout',
+          text: 'You have been logged out successfully.',
+          icon: 'success',
+          timer: 2000,
+        });
+      } catch (error) {
+        console.error('Error during logout:', error);
+        Swal.fire({
+          title: 'Error',
+          text: 'Failed to logout. Please try again later.',
+          icon: 'error',
           timer: 2000,
         });
       }
