@@ -73,6 +73,14 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                placeholder="User Role"
+                v-model="payload.userRole"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control w-50 mx-auto"
                 placeholder="Mobile Number"
                 v-model="payload.mobileNumber"
               />
@@ -121,6 +129,7 @@ export default {
         userAge: null,
         username: "",
         emailAdd: "",
+        userRole: "",
         mobileNumber: "",
         userPass: "",
       },
