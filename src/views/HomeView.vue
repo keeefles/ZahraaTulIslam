@@ -42,9 +42,5 @@ p {
     padding: 0;
     margin: 0;
   }
-  .col {
-    padding: 0px;
-    margin: 0px;
-  }
 }
 </style>
