@@ -27,7 +27,8 @@
             <router-link to="/blog" a class="nav-link"> FEED </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/admin" a class="nav-link"> ADMIN </router-link>
+            <router-link to="/admin" a class="nav-link" > ADMIN </router-link>
+            <!-- <router-link to="/admin" a class="nav-link" v-if="document.cookie.get('userRole') === 'admin'"> ADMIN </router-link> -->
           </li>
           <li class="nav-item">
             <router-link to="/contact" a class="nav-link"> CONTACT </router-link>
