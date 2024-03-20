@@ -217,11 +217,12 @@ td {
   }
 }
 .btn {
-  padding: 5px;
+  padding: 6px;
   margin: 10px;
   border-radius: 15px;
-  background: teal;
+  background: #a7926e;
   color: white;
+  border: #a7926e;
   cursor: pointer;
   transition: 0.3s linear;
 }
@@ -232,7 +233,7 @@ table {
 
 .btn:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color: #a7926e;
+  background-color: teal;
   border: none;
 }
 </style>

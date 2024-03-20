@@ -78,7 +78,9 @@ export default {
 <style scoped>
 .outerCont {
   padding: 20px;
-  background-image: url("https://iili.io/JXRe4iG.md.jpg");
+  background-image: url("https://iili.io/JXP744e.md.jpg");
+  /* background-repeat: no-repeat;
+  background-size: cover; */
 }
 .form-container {
   width: 350px;
@@ -126,7 +128,7 @@ export default {
   border-radius: 20px;
   border: 0 !important;
   outline: 0 !important;
-  background: teal;
+  background: #a7926e;
   color: white;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -146,8 +148,8 @@ export default {
   margin-left: 1px;
   font-size: 11px;
   text-decoration: underline;
-  text-decoration-color: teal;
-  color: teal;
+  text-decoration-color: #a7926e;
+  color: #a7926e;
   cursor: pointer;
   font-weight: 800;
 }
