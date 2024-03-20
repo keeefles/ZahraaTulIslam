@@ -13,6 +13,9 @@
           <li>
             <i class="bi bi-github"><a href="https://github.com/keeefles" target="_blank"> @keeefles</a></i><br>
           </li>
+          <li>
+            <i class="bi bi-envelope-heart"> aakeefahj@gmail.com</i><br>
+          </li>
         </ul>
       </div>
       <div class="col">

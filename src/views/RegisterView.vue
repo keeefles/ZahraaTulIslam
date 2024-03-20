@@ -66,6 +66,7 @@ export default {
     addingUser() {
       try {
         this.$store.dispatch("register", this.payload);
+        this.$router.push("/login");
       } catch (error) {
         console.error(error);
       }

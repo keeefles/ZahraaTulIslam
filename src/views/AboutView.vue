@@ -30,7 +30,7 @@
     <div class="row">
       <div class="img-col">
         <img
-          src="https://iili.io/JYdoiFf.md.jpg"
+          src="https://iili.io/JXS2e0x.jpg"
           alt="image"
           class="center aboutImg"
           align-items="center"

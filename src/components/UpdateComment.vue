@@ -32,14 +32,14 @@
         </div>
         <div class="modal-body">
           <form @submit.prevent="updateComment">
-            <!-- <div class="mb-3">
+            <div class="mb-3">
                   <input
                   type="text"
                   class="form-control w-50 mx-auto"
                   placeholder="Post Id"
                   v-model="payload.postId"
                   />
-              </div> -->
+              </div>
             <div class="mb-3">
               <input
                 type="text"
