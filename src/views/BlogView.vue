@@ -59,18 +59,16 @@ a {
   color: #fff;
   padding: 10px;
   margin: 10px;
-  background-color: teal;
+  background-color: #a7926e;
   font-size: 12px;
   border: none;
   cursor: pointer;
   transition: 0.4s;
 }
-/* .btn:hover {
-  background-color: ;
+.btn:hover {
+  background-color: teal;
   color: #fff;
   transition: 1s;
-  padding: 10px;
   font-size: small;
-  margin: 10px;
-} */
+}
 </style>

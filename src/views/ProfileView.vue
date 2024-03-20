@@ -155,7 +155,7 @@ export default {
 
 <style scoped>
 .formDeets {
-  color: teal;
+  color: #a7926e;
   text-align: inherit;
   font-size: medium;
   padding: 0 0px 20px 20px;
@@ -193,7 +193,7 @@ label {
   padding: 5px;
   margin: 10px;
   border-radius: 15px;
-  background: teal;
+  background: #a7926e;
   color: white;
   cursor: pointer;
   transition: 0.3s linear;
@@ -236,7 +236,7 @@ label {
   padding: 20px 15px;
 }
 .userData {
-  color: teal;
+  color: #a7926e;
   text-align: inherit;
   font-size: medium;
   padding: 20px 15px;
@@ -248,7 +248,7 @@ label {
   margin: auto;
   padding: 10px;
   text-align: center;
-  color: teal;
+  color: #a7926e;
 }
 .input {
   border-radius: 15px;
