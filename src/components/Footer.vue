@@ -35,20 +35,6 @@
           </li>
         </ul>
       </div>
-      <div class="col">
-        <h2 class="h6 col1" js-footer="toggle">Collaborators of Zahraa Tul Islam:</h2>
-        <ul js-footer="menu">
-          <li>
-            <i class="bi bi-whatsapp"> +27 65 944 7142</i>
-          </li>
-          <li>
-            <i class="bi bi-instagram"><a href="https://www.instagram.com/_vdrossouw" target="_blank"> _vdrossouw</a></i>
-          </li>
-          <li>
-            <i class="bi bi-github"><a href="https://github.com/veroniquex1" target="_blank"> @veroniquex1</a></i>
-          </li>
-        </ul>
-      </div>
     </div>
       <div class="row">
           <p class="footer">Zahraa Tul Islam &copy; <span>{{ currYear }}</span></p>

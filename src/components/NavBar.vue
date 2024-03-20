@@ -26,20 +26,19 @@
           <li class="nav-item">
             <router-link to="/blog" a class="nav-link"> FEED </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="adminDisplay">
             <router-link to="/admin" a class="nav-link" > ADMIN </router-link>
-            <!-- <router-link to="/admin" a class="nav-link" v-if="document.cookie.get('userRole') === 'admin'"> ADMIN </router-link> -->
           </li>
           <li class="nav-item">
             <router-link to="/contact" a class="nav-link"> CONTACT </router-link>
           </li>
-          <li class="nav-item nav-space">
-            <router-link to="/register" a class="nav-link"><i class="bi bi-person-plus-fill"></i></router-link>
+          <li class="nav-item nav-space" v-if="!loggedInUser">
+            <router-link to="/register" a class="nav-link"> SIGN UP </router-link>
           </li>
           <li class="nav-item nav-space">
             <router-link to="/profile" a class="nav-link"><i class="bi bi-person-circle"></i></router-link>
           </li>
-          <li class="nav-item nav-space">
+          <li class="nav-item nav-space" v-if="!loggedInUser">
             <router-link to="/" a class="nav-link"> LOGIN </router-link>
           </li>
           <!-- <li class="nav-item">
@@ -54,13 +53,57 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    adminDisplay(){
+      return this.loggedInUser && this.loggedInUser.userRole === 'Admin'
+    },
+    loggedInUser(){
+      const cookies = document.cookie.split(';').map(cookie => cookie.trim());
+      const userCookie = cookies.find(cookie => cookie.startsWith('AuthenticateUser='));
+      if (userCookie){
+        try {
+          const userData = JSON.parse(userCookie.split('=')[1]);
+          if(userData && userData.result) {
+            return userData.result
+          } else {
+            console.error('invalid user data format', userData);
+            return null;
+          }
+        } catch (e) {
+          console.error('invalid parsing user data', e);
+          return null;
+        }
+      } else {
+        return null;
+      }
+    }
+  },
+  mounted() {
+    const cookies = document.cookie.split(';').map(cookie => cookie.trim());
+      const userCookie = cookies.find(cookie => cookie.startsWith('AuthenticateUser='));
+      if (userCookie){
+        try {
+          const userData = JSON.parse(userCookie.split('=')[1]);
+          if(userData && userData.result) {
+            this.$store.dispatch('setUser', userData.result)
+            return userData.result
+          } else {
+            console.error('invalid user data format', userData);
+            return null;
+          }
+        } catch (e) {
+          console.error('invalid parsing user data', e);
+          return null;
+      }
+    }
+  }
+};
 </script>
 
 <style>
 .nav-title {
   letter-spacing: 10px;
-  font-family: 'Times New Roman', Times, serif;
   text-align: center;
   padding-top: 20px;
 }
