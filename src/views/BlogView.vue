@@ -35,13 +35,13 @@ export default {
     posts() {
       return this.$store.state.posts;
     },
-    comments() {
-      return this.$store.state.comments;
-    },
+    // comments() {
+    //   return this.$store.state.comments;
+    // },
   },
   mounted() {
     this.$store.dispatch("fetchPosts");
-    this.$store.dispatch("fetchComments");
+    // this.$store.dispatch("fetchComments");
   },
 };
 </script>
