@@ -135,14 +135,33 @@ body {
   color: black;
 }
 .nav-item a:hover {
-  font-weight: bold;
-  color: teal;
+  color: #a7926e;
   padding: 6px;
 }
 .nav-item a.router-link-exact-active {
-  color: teal;
-  border-radius: 25px;
-  box-shadow: 0px 0px 10px 0px teal;
+  font-weight: bold;
+  color: #a7926e;
   padding: 6px;
+}
+.navbar a {
+    position: relative;
+    font-size: 18px;
+    color: #a7926e;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px;
+}
+.navbar a::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #a7926e;
+        transition: .4s;
+} 
+.navbar :hover::before {
+    width: 100%;
 }
 </style>

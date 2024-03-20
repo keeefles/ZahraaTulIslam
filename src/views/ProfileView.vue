@@ -49,26 +49,29 @@
               Log Out
             </button>
 
-            <div v-if="editProfile">
-              <form @submit.prevent="updateUser" class="formCont">
-                <label>username: </label>
-                <input type="text" v-model='editedUser.username'>
-                <label>first name: </label>
-                <input type="text" v-model='editedUser.firstName'>
-                <label>last name: </label>
-                <input type="text" v-model='editedUser.lastName'>
-                <label>age: </label>
-                <input type="text" v-model='editedUser.userAge'>   
-                <label>email: </label>
-                <input type="text" v-model='editedUser.emailAdd'>
-                  <button type="submit" class="save">Save Changes</button>
-                  <button @click="closeForm" class="cancel">Cancel</button>
-              </form>
-            </div>
-
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="formContainer" v-if="editProfile">
+      <form @submit.prevent="updateUser" class="formCont">
+        <h2 class="heading">Update</h2>
+        <label>username: </label>
+          <input class="input formDeets" type="text" v-model='editedUser.username'>
+        <label>first name: </label>
+          <input class="input formDeets" type="text" v-model='editedUser.firstName'>
+        <label>last name: </label>
+          <input class="input formDeets" type="text" v-model='editedUser.lastName'>
+        <label>age: </label>
+          <input class="input formDeets" type="text" v-model='editedUser.userAge'>   
+        <label>email: </label>
+          <input class="input formDeets" type="text" v-model='editedUser.emailAdd'>
+        <div class="btn-align">
+          <button type="submit" class="btn">Save</button>
+          <button @click="closeForm" class="btn">Cancel</button>
+        </div>
+      </form>
     </div>
   </div>
 </template>
@@ -151,11 +154,46 @@ export default {
 </script>
 
 <style scoped>
+.formDeets {
+  color: #a7926e;
+  text-align: inherit;
+  font-size: medium;
+  padding: 0 0px 20px 20px;
+}
+.formCont {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: auto;
+  margin-bottom: 50px;
+  background-color: #fff;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+  text-align: left;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}
+label {
+  display: flex;
+  flex-direction: row;
+  font-weight: 400;
+  font-size: medium;
+  padding: 0 20px;
+}
+.btn-align {
+  display: flex;
+  justify-content: center;
+}
 .btn {
   padding: 5px;
   margin: 10px;
   border-radius: 15px;
-  background: teal;
+  background: #a7926e;
   color: white;
   cursor: pointer;
   transition: 0.3s linear;
@@ -174,7 +212,9 @@ export default {
   display: inline-block;
 }
 .cont {
-  background-image: url("https://iili.io/JXRe4iG.md.jpg")
+  background-image: url("https://iili.io/JXP744e.md.jpg");
+  /* background-repeat: no-repeat;
+  background-size: cover; */
 }
 .card {
   width: 400px;
@@ -196,7 +236,7 @@ export default {
   padding: 20px 15px;
 }
 .userData {
-  color: teal;
+  color: #a7926e;
   text-align: inherit;
   font-size: medium;
   padding: 20px 15px;
@@ -208,7 +248,11 @@ export default {
   margin: auto;
   padding: 10px;
   text-align: center;
-  color: teal;
+  color: #a7926e;
+}
+.input {
+  border-radius: 15px;
+  border: none;
 }
 
 .card p:not(.heading) {
@@ -231,6 +275,10 @@ export default {
     padding: 0;
     margin: 0;
     margin-top: 20px;
+  }
+  .formCont {
+    width: 280px;
+    margin-bottom: 20px;
   }
 }
 </style>

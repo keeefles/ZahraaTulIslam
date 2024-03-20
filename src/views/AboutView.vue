@@ -38,7 +38,7 @@
       </div>
       <div class="text-col">
         <h3 class="heading">ZAHRAA TUL ISLAM x AAKEEFAH JONES</h3>
-        <p class="lead">
+        <p class="lead animated.infinite">
             Meet Aakeefah, the visionary 19-year-old Muslimah developer behind Zahraa tul Islam. Fueled by her passion for both Islam and technology, Aakeefah embarked on a mission to create a digital sanctuary for her sisters in faith. With determination and innovation, she brought her vision to life, crafting a platform where Muslim women could find solace, guidance, and sisterhood. Aakeefah's dedication and creativity shine through every aspect of Zahraa tul Islam, making it a beacon of inspiration for Muslimahs around the globe. Her commitment to empowering her community is a testament to the potential of young Muslim women in the digital age.
         </p>
       </div>
@@ -93,7 +93,18 @@ p {
   margin-left: auto;
   margin-right: auto;
 }
-
+p {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 .row {
   display: flex;
   width: 100%;
@@ -140,7 +151,7 @@ p {
   padding: 50px;
   margin: 50px 0;
   text-align: center;
-  background-color: teal;
+  background-color: #a7926e;
 }
 .aboutCont:hover{
   transition: 0.5s ease-in-out;

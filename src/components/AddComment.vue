@@ -114,7 +114,7 @@ export default {
   padding: 5px;
   margin: 10px;
   border-radius: 15px;
-  background: teal;
+  background: #a7926e;
   color: white;
   cursor: pointer;
   transition: 0.3s linear;
@@ -123,6 +123,6 @@ export default {
 .btn:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border: none;
-  background-color: #a7926e;
+  background-color: teal;
 }
 </style>

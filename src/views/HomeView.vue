@@ -34,6 +34,7 @@ export default {
 }
 p {
   padding: 0 50px;
+  font-style: italic;
 }
 span {
   letter-spacing: 20px;
@@ -74,7 +75,7 @@ span {
   padding: 5px;
   margin: 10px;
   border-radius: 15px;
-  background: teal;
+  background: #a7926e;
   color: white;
   cursor: pointer;
   transition: 0.3s linear;
@@ -83,6 +84,6 @@ span {
 .btn:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border: none;
-  background-color: #a7926e;
+  background-color: teal;
 }
 </style>

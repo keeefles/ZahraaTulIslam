@@ -66,7 +66,9 @@ export default {};
 
 <style scoped>
 .contact-form {
-  background-image: url("https://iili.io/JXRe4iG.md.jpg");
+  background-image: url("https://iili.io/JXP744e.md.jpg");
+  /* background-repeat: no-repeat;
+  background-size: cover; */
   justify-content: center;
   grid-template-rows: 1fr auto 1fr;
   display: flex;
@@ -111,7 +113,7 @@ h2 {
   border-radius: 35px;
   color: #fff;
   padding: 10px;
-  background-color: teal;
+  background-color: #a7926e;
   font-size: 12px;
   border: none;
   cursor: pointer;
@@ -120,7 +122,7 @@ h2 {
 }
 .btn:hover {
   color: white;
-  background-color:  #a7926e;
+  background-color:  teal;
   transition: 0.5s ease;
 }
 form {
@@ -143,7 +145,7 @@ textarea {
   font-size: 15px;
   color: #fff;
   width: 50%;
-  background: #1d3557;
+  background: #a7926e;
   transition: 0.3s ease;
   padding: 14px 15px;
 }
@@ -153,9 +155,9 @@ textarea {
     margin-bottom: 10px;
   }
 }
-.form-control:hover {
-  border: 3px solid #1d3557;
-}
+/* .form-control:hover {
+  border: 3px solid teal;
+} */
 .form-text {
   text-align: left;
   color: #000;
