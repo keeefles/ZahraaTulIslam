@@ -49,7 +49,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.isloading = false;
-    }, 500);
+    }, 5000);
   },
 };
 </script>
@@ -61,23 +61,23 @@ export default {
 
 .star {
   opacity: 0;
-  fill: #f2f3f4;
+  fill: #a7926e;
   animation: loader 2s infinite alternate;
-  color: teal;
+  color: #fff;
 }
 
 .star2 {
   height: 20px;
   margin-left: -10px;
   animation-delay: 0.25s;
-  color: teal;
+  color: #fff;
 }
 
 .star3 {
   height: 16px;
   margin-left: -15px;
   animation-delay: 0.5s;
-  color: teal;
+  color: #fff;
 }
 
 @keyframes loader {

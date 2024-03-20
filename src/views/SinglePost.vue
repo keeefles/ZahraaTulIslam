@@ -1,16 +1,16 @@
 <template>
-<addPost />
+  <addPost />
   <div class="container">
     <div class="row" v-if="post">
       <Card v-for="post in post" :key="post.postId">
         <template #card-header>
-          <h3 class="card-title">{{ post.username }}</h3>
+          <h4 class="card-title">{{ post.username }}</h4>
         </template>
         <template #card-body>
           <p class="card-text text-dark bg-gradient bg-dark-subtle p-2">
             {{ post.content }}
           </p>
-          <router-link :to="{ name: 'comments', params: {id: post.postId }}">View More</router-link>
+          <router-link to="/feed"> View posts </router-link>
         </template>
       </Card>
     </div>
@@ -27,39 +27,33 @@ import addPost from "@/components/AddPost.vue";
 export default {
   components: {
     Card,
-    addPost
+    addPost,
   },
   computed: {
     post() {
-      return this.$store.state.posts;
+      return this.$store.state.post;
     },
   },
   mounted() {
-    this.$store.dispatch("fetchPosts");
+    this.$store.dispatch("fetchPost");
   },
-}
+};
 </script>
 
 <style scoped>
 a {
   text-decoration: none;
-  color: inherit;
+  /* color: inherit; */
 }
 .btn {
   border-radius: 30px;
   color: #fff;
   padding: 10px;
   margin: 10px;
-  background-color: #a7926e;
+  background-color: teal;
   font-size: 12px;
   border: none;
   cursor: pointer;
   transition: 0.4s;
-}
-.btn:hover {
-  background-color: teal;
-  color: #fff;
-  transition: 1s;
-  font-size: small;
 }
 </style>

@@ -41,6 +41,11 @@ const routes = [
     name: 'contact',
     component: () => import('@/views/ContactView.vue')
   },
+  {
+    path: '/comments',
+    name: 'comments',
+    component: () => import('@/views/SinglePost.vue')
+  },
 ]
 
 const router = createRouter({
