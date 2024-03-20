@@ -6,9 +6,9 @@
       </div>
       <div class="col">
       <!-- <p>{{ user.firstName }} {{ user.lastName }}</p> -->
-        <H1 class="head">Welcome to <br/><br/><span>ZAHRAA TUL ISLAM</span></H1>
+        <H1 class="head fade-in-text">Welcome to <br/><span>ZAHRAA TUL ISLAM</span></H1>
         <p>A sanctuary for Islamic females seeking guidance, inspiration, and sisterhood in their spiritual journey. Our blog site is dedicated to providing a nurturing space where Muslim women can explore their faith, find solace, and celebrate the beauty of Islam. </p>
-        <button><router-link to="/blog" a class="nav-link"> Go to Feed </router-link></button>
+        <button class="btn"><router-link to="/blog" a class="nav-link"> Go to Feed </router-link></button>
       </div>
     </div>
   </div>
@@ -27,18 +27,33 @@ export default {
   margin-left: -25px;
   padding-top: 20px;
 }
+
 .head {
-  padding: 50px;
+  padding: 100px 50px 50px 50px;
   text-align: center;
-  font-family: 'Playfair Display', serif;
+}
+p {
+  padding: 0 50px;
 }
 span {
   letter-spacing: 20px;
   text-align: center;
+  color: #a7926e;
+  font-weight: 600;
 }
-p {
-  font-family: 'Playfair Display', serif;
-}
+.fade-in-text {
+        opacity: 0;
+        animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
 @media (max-width: 351px) {
   .homeImg {
     padding: 25px;
@@ -55,13 +70,19 @@ p {
     letter-spacing: 10px;
   }
 }
-button {
+.btn {
   padding: 5px;
-  margin: 15px;
-  border: none;
-  background-color: teal;
+  margin: 10px;
   border-radius: 15px;
+  background: teal;
   color: white;
-  font-size: small;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+
+.btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: none;
+  background-color: #a7926e;
 }
 </style>

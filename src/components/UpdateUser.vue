@@ -40,6 +40,8 @@
                 v-model="payload.userId"
                 disabled="disabled"
               >
+            </div>
+            <div class="mb-3">
               <input
                 type="text"
                 class="form-control w-50 mx-auto"

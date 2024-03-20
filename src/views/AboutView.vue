@@ -142,6 +142,10 @@ p {
   text-align: center;
   background-color: teal;
 }
+.aboutCont:hover{
+  transition: 0.5s ease-in-out;
+  background-color: #a7926e;
+}
 .aboutCont1 {
   padding: 20px 100px;
   text-align: center;
