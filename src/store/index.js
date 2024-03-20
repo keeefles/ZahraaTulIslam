@@ -137,7 +137,7 @@ export default createStore({
           if (result.isConfirmed) {
             Swal.fire({
               title: "Deleted!",
-              text: "Your file has been deleted.",
+              text: "Your profile has been deleted.",
               icon: "success"
             });
           }
@@ -251,7 +251,7 @@ export default createStore({
           if (result.isConfirmed) {
             Swal.fire({
               title: "Deleted!",
-              text: "Your file has been deleted.",
+              text: "Your post has been deleted.",
               icon: "success"
             });
           }
@@ -369,7 +369,7 @@ export default createStore({
           if (result.isConfirmed) {
             Swal.fire({
               title: "Deleted!",
-              text: "Your file has been deleted.",
+              text: "Your comment has been deleted.",
               icon: "success"
             });
           }
@@ -383,44 +383,7 @@ export default createStore({
         });
       }
     },
-    // async login(context, packet) {
-    //   try {
-    //     const { msg, token, result } = (
-    //       await axios.post(`${ztiURL}users/login`, packet)
-    //     ).data;
-    //     if (result) {
-    //       context.commit("setUser", { msg, result });
-    //       cookies.set("LegitUser", {
-    //         msg,
-    //         token,
-    //         result,
-    //       });
-    //       AuthenticateUser.applyToken(token);
-    //       sweet({
-    //         title: msg,
-    //         text: `Welcome back,
-    //         ${result?.firstName} ${result?.lastName}`,
-    //         icon: "success",
-    //         timer: 2000,
-    //       });
-    //       router.push({ name: "home" });
-    //     } else {
-    //       sweet({
-    //         title: "info",
-    //         text: msg,
-    //         icon: "info",
-    //         timer: 2000,
-    //       });
-    //     }
-    //   } catch (e) {
-    //     sweet({
-    //       title: "Error",
-    //       text: "Failed to login.",
-    //       icon: "error",
-    //       timer: 2000,
-    //     });
-    //   }
-    // },
+    // login / logout
     async login(context, payload) {
       try {
         const response = await axios.post(

@@ -86,6 +86,7 @@
       <table class="table">
         <thead class="table-dark">
           <tr>
+            <th>Post Id</th>
             <th>Comment Id</th>
             <th>Username</th>
             <th>Comments</th>
@@ -94,6 +95,7 @@
         </thead>
         <tbody v-if="comments">
           <tr v-for="comment in comments" :key="comment.commentId">
+            <td>{{ comment.postId }}</td>
             <td>{{ comment.commentId }}</td>
             <td>{{ comment.username }}</td>
             <td>{{ comment.comments }}</td>

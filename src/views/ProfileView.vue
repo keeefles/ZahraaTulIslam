@@ -13,13 +13,14 @@
             <p>{{ user.userAge }}</p>
             <div class="d-flex justify-content-between">
               <button
-                @click="(event) => deleteUser(user.userID)"
+                @click="(event) => deleteUser(user.userId)"
                 class="deleteButton"
               >
-                <i class="bi bi-trash-fill"></i>
+                <i class="bi bi-trash-fill">Delete</i>
               </button>
+              <updateUser :user="user" @updateUser="updateUser" />
               <button @click="logoutUser" class="logoutButton">
-                <i class="bi bi-box-arrow-in-right"></i>
+                <i class="bi bi-box-arrow-in-right">Log Out</i>
               </button>
             </div>
           </div>
@@ -30,7 +31,12 @@
 </template>
 
 <script>
+import updateUser from "@/components/UpdateUser.vue";
+
 export default {
+  components: {
+    updateUser,
+  },
   data() {
     return {
       user: null,
@@ -62,7 +68,7 @@ export default {
     },
     async deleteUser() {
       try {
-        await this.$store.dispatch("deleteUser", { id: this.user._id });
+        await this.$store.dispatch("deleteUser", { id: this.user.userId });
         this.fetchUserData(); // Fetch updated user data after deletion
         this.$router.push("/login");
       } catch (error) {
@@ -72,6 +78,15 @@ export default {
     logoutUser() {
       this.$store.dispatch("logout");
     },
+    async updatingUser() {
+      try {
+        await this.$store.dispatch("updateUser", { id: this.user.userId, data: updateUser });
+        this.fetchUserData();
+        this.$router.push('/profile');
+      } catch (error) {
+        console.error("Error updating user:", error);
+      }
+    }
   },
 };
 </script>

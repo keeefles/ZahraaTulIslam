@@ -13,7 +13,7 @@
             Comment
           </button>
           <button class="btn">
-            <router-link to="/blog"> </router-link>
+            <router-link to="/feed"></router-link>
           </button>
         </template>
       </Card>
@@ -35,14 +35,17 @@ export default {
     posts() {
       return this.$store.state.posts;
     },
-    // comments() {
-    //   return this.$store.state.comments;
-    // },
+    comments() {
+      return this.$store.state.comments;
+    },
   },
   mounted() {
     this.$store.dispatch("fetchPosts");
-    // this.$store.dispatch("fetchComments");
+    this.$store.dispatch("fetchComments");
   },
+  methods: {
+    
+  }
 };
 </script>
 
