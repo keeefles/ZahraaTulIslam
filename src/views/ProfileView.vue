@@ -38,10 +38,34 @@
             >
               Delete
             </button>
-            <updateUser :user="user" @updateUser="updateUser" />
+            <button
+              @click="(openForm)"
+              class="updateButton btn"
+            >
+              Update
+            </button>
+            <!-- <updateUser :user="user" @updateUser="updateUser" /> -->
             <button @click="logoutUser" class="logoutButton btn">
               Log Out
             </button>
+
+            <div v-if="editProfile">
+              <form @submit.prevent="updateUser" class="formCont">
+                <label>username: </label>
+                <input type="text" v-model='editedUser.username'>
+                <label>first name: </label>
+                <input type="text" v-model='editedUser.firstName'>
+                <label>last name: </label>
+                <input type="text" v-model='editedUser.lastName'>
+                <label>age: </label>
+                <input type="text" v-model='editedUser.userAge'>   
+                <label>email: </label>
+                <input type="text" v-model='editedUser.emailAdd'>
+                  <button type="submit" class="save">Save Changes</button>
+                  <button @click="closeForm" class="cancel">Cancel</button>
+              </form>
+            </div>
+
           </div>
         </div>
       </div>
@@ -50,22 +74,32 @@
 </template>
 
 <script>
-import updateUser from "@/components/UpdateUser.vue";
+// import updateUser from "@/components/UpdateUser.vue";
 
 export default {
-  components: {
-    updateUser,
-  },
+  // components: {
+  //   updateUser,
+  // },
   data() {
     return {
       user: null,
+      editProfile: false,
+      editedUser: {},
     };
   },
   mounted() {
-    this.fetchUserData();
+    this.getUserData();
   },
   methods: {
-    fetchUserData() {
+    openForm(){
+      this.editedUser = {...this.user};
+      this.editProfile = true
+    },
+    closeForm() {
+      this.editedUser = {};
+      this.editProfile = false
+    },
+    getUserData() {
       const cookies = document.cookie.split(";").map((cookie) => cookie.trim());
       const userCookie = cookies.find((cookie) =>
         cookie.startsWith("AuthenticateUser=")
@@ -88,7 +122,7 @@ export default {
     async deleteUser() {
       try {
         await this.$store.dispatch("deleteUser", { id: this.user.userId });
-        this.fetchUserData(); // Fetch updated user data after deletion
+        this.getUserData(); // Fetch updated user data after deletion
         this.$router.push("/login");
       } catch (error) {
         console.error("Error deleting user:", error);
@@ -97,11 +131,11 @@ export default {
     logoutUser() {
       this.$store.dispatch("logout");
     },
-    async updateUser(userData) {
+    async updateUser() {
       try {
-        await this.$store.dispatch("updatingUser", {
+        await this.$store.dispatch("updateUser", {
           id: this.user.userId,
-          data: userData,
+          data: this.editedUser,
         });
         this.$router.push("/profile");
       } catch (error) {
@@ -112,6 +146,7 @@ export default {
         }, 3000);
     },
   },
+
 };
 </script>
 
@@ -139,7 +174,7 @@ export default {
   display: inline-block;
 }
 .cont {
-  background-color: #a7926e;
+  background-image: url("https://iili.io/JXRe4iG.md.jpg")
 }
 .card {
   width: 400px;
