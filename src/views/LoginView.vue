@@ -68,8 +68,6 @@ export default {
 
 .title {
   text-align: center;
-  /* font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif; */
   margin: 10px 0 30px 0;
   font-size: 28px;
   font-weight: 800;
@@ -79,8 +77,6 @@ export default {
   margin: 0;
   margin-bottom: 5px;
   font-size: 9px;
-  /* font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif; */
 }
 
 .form {
@@ -103,8 +99,6 @@ export default {
 .form-btn {
   padding: 10px 15px;
   margin-top: 20px;
-  /* font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif; */
   border-radius: 20px;
   border: 0 !important;
   outline: 0 !important;
@@ -122,8 +116,6 @@ export default {
   margin: 0;
   font-size: 10px;
   color: #747474;
-  /* font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif; */
 }
 
 .sign-up-link {
@@ -134,5 +126,11 @@ export default {
   color: teal;
   cursor: pointer;
   font-weight: 800;
+}
+@media (max-width: 351px) {
+  .form-container {
+    width: 250px;
+    height: auto;
+  }
 }
 </style>

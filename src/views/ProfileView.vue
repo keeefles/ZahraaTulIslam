@@ -1,28 +1,47 @@
 <template>
-  <div>
+  <div class="cont">
     <!-- User Profile -->
     <div class="container">
-      <div class="row">
-        <div class="card">
-          <div class="col" v-if="user">
-            <h2>{{ user.firstName }} {{ user.lastName }}</h2>
-            <p>{{ user.username }}</p>
-            <p>{{ user.firstName }}</p>
-            <p>{{ user.lastName }}</p>
-            <p>{{ user.emailAdd }}</p>
-            <p>{{ user.userAge }}</p>
-            <div class="d-flex justify-content-between">
-              <button
-                @click="(event) => deleteUser(user.userId)"
-                class="deleteButton"
-              >
-                <i class="bi bi-trash-fill">Delete</i>
-              </button>
-              <updateUser :user="user" @updateUser="updateUser" />
-              <button @click="logoutUser" class="logoutButton">
-                <i class="bi bi-box-arrow-in-right">Log Out</i>
-              </button>
-            </div>
+      <div class="card">
+        <div class="col" v-if="user">
+          <h2 class="heading">{{ user.firstName }} {{ user.lastName }}</h2>
+          <p>
+            <span class="leads">username: </span> <br /><span class="userData"
+              >{{ user.username }}
+            </span>
+          </p>
+          <p>
+            <span class="leads">first name: </span> <br /><span class="userData"
+              >{{ user.firstName }}
+            </span>
+          </p>
+          <p>
+            <span class="leads">last name: </span> <br /><span class="userData"
+              >{{ user.lastName }}
+            </span>
+          </p>
+          <p>
+            <span class="leads">age: </span> <br /><span class="userData"
+              >{{ user.userAge }}
+            </span>
+          </p>
+          <p>
+            <span class="leads">email address: </span> <br /><span
+              class="userData"
+              >{{ user.emailAdd }}
+            </span>
+          </p>
+          <div class="btn-spacing">
+            <button
+              @click="(event) => deleteUser(user.userId)"
+              class="deleteButton btn"
+            >
+              Delete
+            </button>
+            <updateUser :user="user" @updateUser="updateUser" />
+            <button @click="logoutUser" class="logoutButton btn">
+              Log Out
+            </button>
           </div>
         </div>
       </div>
@@ -78,42 +97,83 @@ export default {
     logoutUser() {
       this.$store.dispatch("logout");
     },
-    async updatingUser() {
+    async updateUser(userData) {
       try {
-        await this.$store.dispatch("updateUser", { id: this.user.userId, data: updateUser });
-        this.fetchUserData();
-        this.$router.push('/profile');
+        await this.$store.dispatch("updatingUser", {
+          id: this.user.userId,
+          data: userData,
+        });
+        this.$router.push("/profile");
       } catch (error) {
         console.error("Error updating user:", error);
       }
-    }
+      setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+    },
   },
 };
 </script>
 
 <style scoped>
-button {
-  border: none;
+.btn {
   padding: 5px;
-  margin: auto;
+  margin: 10px;
+  border-radius: 15px;
+  background: teal;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+.btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: none;
+  background-color: #a7926e;
+}
+.btn-spacing {
+  display: flex;
+  justify-content: space-evenly;
+}
+.container {
+  margin: 50px;
+  display: inline-block;
+}
+.cont {
+  background-color: #a7926e;
 }
 .card {
-  width: 250px;
+  width: 400px;
   height: auto;
   background-color: #fff;
   display: inline-block;
   justify-content: center;
+  align-items: center;
   padding: 12px;
   gap: 12px;
   text-align: left;
   border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
 }
-
+.leads {
+  font-weight: 400;
+  font-size: medium;
+  padding: 20px 15px;
+}
+.userData {
+  color: teal;
+  text-align: inherit;
+  font-size: medium;
+  padding: 20px 15px;
+}
 .heading {
-  font-size: 20px;
+  font-size: 30px;
   text-transform: capitalize;
   font-weight: 600;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  color: teal;
 }
 
 .card p:not(.heading) {
@@ -125,8 +185,17 @@ button {
   font-weight: 600;
 }
 
-.row {
-  margin: 20px;
-  display: inline-block;
+@media (max-width: 351px) {
+  .card {
+    width: 280px;
+    margin: auto;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .container {
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+  }
 }
 </style>
