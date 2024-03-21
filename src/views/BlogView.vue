@@ -2,54 +2,47 @@
   <div class="container">
     <div class="row1">
       <div class="col">
-        <input type="text" placeholder="Search post by username" class="form-control">
+        <input
+          type="text"
+          placeholder="Search post by username"
+          class="form-control"
+        />
         <button class="btn">Sort by date</button>
       </div>
       <div class="col">
-            <addPost />
-          </div>
+        <addPost />
       </div>
+    </div>
     <div class="row" v-if="posts">
       <Card v-for="post in posts" :key="post.postId">
         <template #card-header>
           <h3 class="card-title">{{ post.content }}</h3>
         </template>
         <template #card-body>
-          <p class="card-text">
-            @{{ post.username }}
-          </p>
+          <p class="card-text">@{{ post.username }}</p>
           <div class="post">
-    <p class="timestamp">{{ date }}</p>
-  </div>
+            <p class="timestamp">{{ date }}</p>
+          </div>
         </template>
         <template #card-footer>
-          <button
-              @click="(openForm)"
-              class="commentButton btn"
-            >
-              Comment
-            </button>
+          <button @click="openForm;" class="commentButton btn">Comment</button>
 
-            <div class="formContainer" v-if="openComments">
-              <h2 class="heading">Comments</h2>
-              <div v-if="comments">
-                <div v-for="comment in comments" :key="comment.postId">
-                  <div @submit.prevent="closeComments" class="formCont">
-        <div>{{ comment.username }}</div>
-          <div>{{ comment.comments }}</div>
-          <div>{{ date }}</div>
-          <div class="btn-align">
-            <button @click="closeForm" class="btn">Cancel</button>
-            <addComment />
-        </div>
-      </div>
-              </div>
+          <div class="formContainer" v-if="openComments">
+            <h2 class="heading">Comments</h2>
+            <div v-if="comments">
+              <div v-for="comment in comments" :key="comment.postId">
+                <div @submit.prevent="closeComments" class="formCont">
+                  <div>{{ comment.username }}</div>
+                  <div>{{ comment.comments }}</div>
+                  <div>{{ date }}</div>
+                  <div class="btn-align">
+                    <button @click="closeForm" class="btn">Cancel</button>
+                    <addComment />
+                  </div>
                 </div>
-                
-              
-        
-      
-    </div>
+              </div>
+            </div>
+          </div>
           <!-- <div v-for="comments in comments" :key="comments.postId">
             <p>{{ comments.comments }}</p>
             <p>{{ comments.username }}</p>
@@ -70,15 +63,16 @@
 import Card from "../components/Card.vue";
 import addPost from "@/components/AddPost.vue";
 import addComment from "@/components/AddComment.vue";
+import updatePost from "@/components/UpdatePost.vue";
 
 export default {
   data() {
     return {
-      postContent: '',
-      date: '',
-      searchQuery: '', // Stores the user's search query
-      posts: '',
-      openComments: '',
+      postContent: "",
+      date: "",
+      searchQuery: "", // Stores the user's search query
+      posts: "",
+      openComments: "",
       closeComments: {},
     };
   },
@@ -86,6 +80,7 @@ export default {
     Card,
     addPost,
     addComment,
+    updatePost,
   },
   computed: {
     posts() {
@@ -99,13 +94,13 @@ export default {
       if (!this.searchQuery) {
         return this.posts;
       }
-      
+
       // Otherwise, filter posts based on the search query
       const query = this.searchQuery.toLowerCase();
-      return this.posts.filter(post =>
+      return this.posts.filter((post) =>
         post.content.toLowerCase().includes(query)
       );
-    }
+    },
   },
   mounted() {
     this.$store.dispatch("fetchPosts");
@@ -119,20 +114,20 @@ export default {
     updateDate() {
       const currentDate = new Date();
       const year = currentDate.getFullYear();
-      const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-      const day = String(currentDate.getDate()).padStart(2, '0');
+      const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+      const day = String(currentDate.getDate()).padStart(2, "0");
       this.date = `${year}-${month}-${day}`;
     },
-    openForm(){
-      this.closeComments = {...this.comments};
-      this.openComments = true
+    openForm() {
+      this.closeComments = { ...this.comments };
+      this.openComments = true;
     },
     closeForm() {
-      this.closeComments= {} ;
-      this.openComments = false
+      this.closeComments = {};
+      this.openComments = false;
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -146,7 +141,7 @@ export default {
   align-items: center;
 }
 .container {
-  background-image: url('https://iili.io/JXZN74t.md.jpg');
+  background-image: url("https://iili.io/JXZN74t.md.jpg");
 }
 .card-text {
   padding-left: 20px;
@@ -156,7 +151,7 @@ export default {
   margin: 0;
 }
 .card-title {
-  color: #a7926e
+  color: #a7926e;
 }
 .timestamp {
   padding-left: 20px;
@@ -209,8 +204,7 @@ a {
 }
 @media (max-width: 351px) {
   .card {
-  margin: 10px 0;
+    margin: 10px 0;
   }
 }
-
 </style>

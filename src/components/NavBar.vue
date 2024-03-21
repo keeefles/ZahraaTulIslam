@@ -23,7 +23,7 @@
           <li class="nav-item">
             <router-link to="/about" a class="nav-link"> ABOUT </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="loggedInUser">
             <router-link to="/blog" a class="nav-link"> FEED </router-link>
           </li>
           <li class="nav-item" v-if="adminDisplay">
@@ -38,7 +38,7 @@
           <li class="nav-item nav-space" v-if="!loggedInUser">
             <router-link to="/" a class="nav-link"> LOGIN </router-link>
           </li>
-          <li class="nav-item nav-space">
+          <li class="nav-item nav-space" v-if="loggedInUser">
             <router-link to="/profile" a class="nav-link"><i class="bi bi-person-circle"></i></router-link>
           </li>
           <!-- <li class="nav-item">

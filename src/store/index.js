@@ -141,6 +141,7 @@ export default createStore({
               icon: "success"
             });
           }
+          
         });
       } catch (e) {
         sweet({
@@ -435,7 +436,7 @@ export default createStore({
         commit('setUser', null);
     
         // Redirect the user to the login page or any other appropriate action
-        router.push('/login');
+        router.push('/');
     
         Swal.fire({
           title: 'Logout',

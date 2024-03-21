@@ -74,7 +74,7 @@
       </form>
     </div>
     <!-- start of display posts -->
-    <div class="container">
+    <!-- <div class="container">
       <div class="card">
         <div class="col"v-if="user && posts && posts.length">
           <h2 class="heading">{{ user.firstName }}'s Posts</h2>
@@ -87,7 +87,7 @@
           <p>no posts available</p>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

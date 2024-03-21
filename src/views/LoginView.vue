@@ -7,11 +7,13 @@
         <input type="email" 
           class="input" 
           placeholder="Email" 
+          required
           v-model="payload.emailAdd"
         />
         <input type="password" 
           class="input" 
           placeholder="Password" 
+          required
           v-model="payload.userPass"
         />
         <button type="button" 
@@ -45,7 +47,8 @@ export default {
   methods: {
     login() {
       this.$store.dispatch('login', this.payload);
-    }
+      alert("Please refresh the page.");
+    },
   }
 };
 </script>
