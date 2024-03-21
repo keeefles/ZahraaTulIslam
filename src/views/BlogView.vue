@@ -4,17 +4,18 @@
       <div class="col">
         <input
           type="text"
-          placeholder="Search post by username"
+          placeholder="Search post"
           class="form-control"
+          v-model="searchQuery"
         />
-        <button class="btn">Sort by date</button>
+        <button class="btn" @click="sortByDate">Sort by date</button> <!-- Add click event for sorting -->
       </div>
       <div class="col">
         <addPost />
       </div>
     </div>
-    <div class="row" v-if="posts">
-      <Card v-for="post in posts" :key="post.postId">
+    <div class="row" v-if="filteredPosts"> <!-- Use filteredPosts instead of posts -->
+      <Card v-for="post in filteredPosts" :key="post.postId">
         <template #card-header>
           <h3 class="card-title">{{ post.content }}</h3>
         </template>
@@ -25,8 +26,7 @@
           </div>
         </template>
         <template #card-footer>
-          <button @click="openForm;" class="commentButton btn">Comment</button>
-
+          <button @click="openForm" class="commentButton btn">Comment</button>
           <div class="formContainer" v-if="openComments">
             <h2 class="heading">Comments</h2>
             <div v-if="comments">
@@ -43,19 +43,13 @@
               </div>
             </div>
           </div>
-          <!-- <div v-for="comments in comments" :key="comments.postId">
-            <p>{{ comments.comments }}</p>
-            <p>{{ comments.username }}</p>
-            <p>{{ comments.postId }}</p>
-          </div>
-          
-          <addComment /> -->
         </template>
       </Card>
     </div>
     <div class="row" v-else>
-      <p class="lead">Loading...</p>
+      <p class="lead">No posts found.</p>
     </div>
+
   </div>
 </template>
 
@@ -68,11 +62,10 @@ import updatePost from "@/components/UpdatePost.vue";
 export default {
   data() {
     return {
-      postContent: "",
-      date: "",
-      searchQuery: "", // Stores the user's search query
-      posts: "",
-      openComments: "",
+      postContent: '',
+      date: '',
+      searchQuery: '', // Stores the user's search query
+      openComments: '',
       closeComments: {},
     };
   },
@@ -125,6 +118,10 @@ export default {
     closeForm() {
       this.closeComments = {};
       this.openComments = false;
+    },
+    sortByDate() {
+      // Sort filteredPosts by date
+      this.filteredPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
     },
   },
 };

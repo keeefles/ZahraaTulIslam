@@ -57,7 +57,7 @@ span {
     }
 @media (max-width: 351px) {
   .homeImg {
-    padding: 25px;
+    /* padding: 25px; */
     margin: 0;
   }
   .col {
@@ -66,6 +66,7 @@ span {
   }
   .head {
     margin: 0;
+    padding: 50px;
   }
   span {
     letter-spacing: 10px;

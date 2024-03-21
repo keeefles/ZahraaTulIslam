@@ -67,6 +67,10 @@
           <input class="input formDeets" type="text" v-model='editedUser.userAge'>   
         <label>email: </label>
           <input class="input formDeets" type="text" v-model='editedUser.emailAdd'>
+        <label>mobile number: </label>
+          <input class="input formDeets" type="text" v-model='editedUser.mobileNumber'>   
+        <label>password: </label>
+          <input class="input formDeets" type="text" v-model='editedUser.userPass'>
         <div class="btn-align">
           <button type="submit" class="btn">Save</button>
           <button @click="closeForm" class="btn">Cancel</button>

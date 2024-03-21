@@ -52,6 +52,7 @@
               name="Send"
               value="Submit"
               placeholder="Submit"
+              @submit.prevent
             />
           </form>
         </div>

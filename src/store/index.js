@@ -125,25 +125,12 @@ export default createStore({
         await axios.delete(`${ztiURL}users/delete/${packet.id}`);
         commit("setUsers");
         dispatch("fetchUsers");
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-          if (result.isConfirmed) {
             Swal.fire({
               title: "Deleted!",
               text: "Your profile has been deleted.",
               icon: "success"
             });
-          }
-          
-        });
-      } catch (e) {
+          } catch (e) {
         sweet({
           title: "Error",
           text: "An error occurred when deleting a user.",
@@ -240,24 +227,12 @@ export default createStore({
         await axios.delete(`${ztiURL}posts/delete/${packet.id}`);
         commit("setPosts");
         dispatch("fetchPosts");
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-          if (result.isConfirmed) {
             Swal.fire({
               title: "Deleted!",
               text: "Your post has been deleted.",
               icon: "success"
             });
-          }
-        });
-      } catch (e) {
+          } catch (e) {
         sweet({
           title: "Error",
           text: "An error occurred when deleting post.",
@@ -358,24 +333,12 @@ export default createStore({
         await axios.delete(`${ztiURL}comments/delete/${packet.id}`);
         commit("setComments");
         dispatch("fetchComments");
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-          if (result.isConfirmed) {
             Swal.fire({
               title: "Deleted!",
               text: "Your comment has been deleted.",
               icon: "success"
             });
-          }
-        });
-      } catch (e) {
+          } catch (e) {
         sweet({
           title: "Error",
           text: "An error occurred when deleting comment.",
