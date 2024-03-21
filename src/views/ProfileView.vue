@@ -73,6 +73,21 @@
         </div>
       </form>
     </div>
+    <!-- start of display posts -->
+    <div class="container">
+      <div class="card">
+        <div class="col"v-if="user && posts && posts.length">
+          <h2 class="heading">{{ user.firstName }}'s Posts</h2>
+            <div v-for="post in posts" :key="post.postId">
+              <p>{{ post.username }}</p>
+              <p>{{ post.content }}</p>
+            </div>
+        </div>
+        <div v-else>
+          <p>no posts available</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -80,9 +95,6 @@
 // import updateUser from "@/components/UpdateUser.vue";
 
 export default {
-  // components: {
-  //   updateUser,
-  // },
   data() {
     return {
       user: null,
@@ -92,7 +104,7 @@ export default {
   },
   mounted() {
     this.getUserData();
-  },
+    },
   methods: {
     openForm(){
       this.editedUser = {...this.user};
@@ -149,7 +161,6 @@ export default {
         }, 3000);
     },
   },
-
 };
 </script>
 
@@ -253,15 +264,6 @@ label {
 .input {
   border-radius: 15px;
   border: none;
-}
-
-.card p:not(.heading) {
-  font-size: 14px;
-}
-
-.card p:last-child {
-  color: #e81cff;
-  font-weight: 600;
 }
 
 @media (max-width: 351px) {
