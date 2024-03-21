@@ -35,11 +35,11 @@
           <li class="nav-item nav-space" v-if="!loggedInUser">
             <router-link to="/register" a class="nav-link"> SIGN UP </router-link>
           </li>
-          <li class="nav-item nav-space">
-            <router-link to="/profile" a class="nav-link"><i class="bi bi-person-circle"></i></router-link>
-          </li>
           <li class="nav-item nav-space" v-if="!loggedInUser">
             <router-link to="/" a class="nav-link"> LOGIN </router-link>
+          </li>
+          <li class="nav-item nav-space">
+            <router-link to="/profile" a class="nav-link"><i class="bi bi-person-circle"></i></router-link>
           </li>
           <!-- <li class="nav-item">
             <router-link to="/register" a class="nav-link">

@@ -5,7 +5,7 @@
     data-bs-toggle="modal"
     data-bs-target="#addCommentsModal"
   >
-    Add Comments
+    Add Comment
   </button>
   <div
     class="modal fade"

@@ -6,6 +6,9 @@
       <div class="cardBody">
         <slot name="card-body"></slot>
       </div>
+      <div class="cardFooter">
+        <slot name="card-footer"></slot>
+      </div>
     </div>
   </template>
   
