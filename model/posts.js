@@ -17,7 +17,7 @@ class Posts {
   fetchPost(req, res) {
     const qry = `
         SELECT postId, username, content
-        FROM Posts;
+        FROM Posts
         WHERE postId = ${req.params.id};
         `;
     zti.query(qry, (err, result) => {

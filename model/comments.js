@@ -17,7 +17,7 @@ class Comments {
   fetchComment(req, res) {
     const qry = `
         SELECT postId, username, commentId, comments
-        FROM Comments;
+        FROM Comments
         WHERE commentId = ${req.params.id};
         `;
     zti.query(qry, (err, result) => {
