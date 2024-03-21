@@ -23,7 +23,40 @@
   </div>
         </template>
         <template #card-footer>
-          <router-link id="card-footer" :to="{ name: 'comments', params: {id: post.postId }}">View More</router-link>
+          <button
+              @click="(openForm)"
+              class="commentButton btn"
+            >
+              Comment
+            </button>
+
+            <div class="formContainer" v-if="openComments">
+              <div v-if="comments">
+                <div v-for="comment in comments" :key="comment.postId">
+                  <div @submit.prevent="closeComments" class="formCont">
+        <h2 class="heading">Comments</h2>
+        <div>{{ comments.username }}</div>
+          <div>{{ comments.comments }}</div>
+          <div>{{ date }}</div>
+          <div class="btn-align">
+          <addComment />
+          <button @click="closeForm" class="btn">Cancel</button>
+        </div>
+      </div>
+              </div>
+                </div>
+                
+              
+        
+      
+    </div>
+          <!-- <div v-for="comments in comments" :key="comments.postId">
+            <p>{{ comments.comments }}</p>
+            <p>{{ comments.username }}</p>
+            <p>{{ comments.postId }}</p>
+          </div>
+          
+          <addComment /> -->
         </template>
       </Card>
     </div>
@@ -36,25 +69,47 @@
 <script>
 import Card from "../components/Card.vue";
 import addPost from "@/components/AddPost.vue";
+import addComment from "@/components/AddComment.vue";
 
 export default {
   data() {
     return {
       postContent: '',
-      date: ''
+      date: '',
+      searchQuery: '', // Stores the user's search query
+      posts: '',
+      openComments: '',
+      closeComments: {},
     };
   },
   components: {
     Card,
-    addPost
+    addPost,
+    addComment,
   },
   computed: {
     posts() {
       return this.$store.state.posts;
     },
+    comments() {
+      return this.$store.state.comments;
+    },
+    filteredPosts() {
+      // If there's no search query, return all posts
+      if (!this.searchQuery) {
+        return this.posts;
+      }
+      
+      // Otherwise, filter posts based on the search query
+      const query = this.searchQuery.toLowerCase();
+      return this.posts.filter(post =>
+        post.content.toLowerCase().includes(query)
+      );
+    }
   },
   mounted() {
     this.$store.dispatch("fetchPosts");
+    this.$store.dispatch("fetchComments");
     this.updateDate();
   },
   methods: {
@@ -67,7 +122,15 @@ export default {
       const month = String(currentDate.getMonth() + 1).padStart(2, '0');
       const day = String(currentDate.getDate()).padStart(2, '0');
       this.date = `${year}-${month}-${day}`;
-    }
+    },
+    openForm(){
+      this.closeComments = {...this.comments};
+      this.openComments = true
+    },
+    closeForm() {
+      this.closeComments= {} ;
+      this.openComments = false
+    },
   },
 }
 </script>
@@ -147,7 +210,7 @@ a {
 @media (max-width: 351px) {
   .card {
   margin: 10px 0;
-}
+  }
 }
 
 </style>

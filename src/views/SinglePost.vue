@@ -10,7 +10,6 @@
             {{ post.content }}
           </p>
           <addComment />
-          <router-link to="/feed"> Back to Posts </router-link>
         </template>
       </Card>
     </div>
