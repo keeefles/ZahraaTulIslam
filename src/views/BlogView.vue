@@ -12,7 +12,7 @@
     <div class="row" v-if="posts">
       <Card v-for="post in posts" :key="post.postId">
         <template #card-header>
-          <h3 class="card-title">"{{ post.content }}"</h3>
+          <h3 class="card-title">{{ post.content }}</h3>
         </template>
         <template #card-body>
           <p class="card-text">
@@ -31,16 +31,16 @@
             </button>
 
             <div class="formContainer" v-if="openComments">
+              <h2 class="heading">Comments</h2>
               <div v-if="comments">
                 <div v-for="comment in comments" :key="comment.postId">
                   <div @submit.prevent="closeComments" class="formCont">
-        <h2 class="heading">Comments</h2>
-        <div>{{ comments.username }}</div>
-          <div>{{ comments.comments }}</div>
+        <div>{{ comment.username }}</div>
+          <div>{{ comment.comments }}</div>
           <div>{{ date }}</div>
           <div class="btn-align">
-          <addComment />
-          <button @click="closeForm" class="btn">Cancel</button>
+            <button @click="closeForm" class="btn">Cancel</button>
+            <addComment />
         </div>
       </div>
               </div>

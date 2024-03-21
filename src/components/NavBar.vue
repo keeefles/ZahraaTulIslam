@@ -146,7 +146,7 @@ body {
 .navbar a {
     position: relative;
     font-size: 18px;
-    color: #a7926e;
+    color: black;
     font-weight: 500;
     text-decoration: none;
     margin-left: 40px;

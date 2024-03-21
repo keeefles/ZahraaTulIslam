@@ -227,8 +227,9 @@ td {
   transition: 0.3s linear;
 }
 table {
-  width: max-content;
-  display: inline-block;
+  width: 1200px;
+  margin: auto;
+  /* display: inline-block; */
 }
 
 .btn:hover {
