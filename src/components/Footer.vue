@@ -4,16 +4,16 @@
       <div class="col">
         <h2 class="h6 col1" js-footer="toggle">About the Developer:</h2>
         <ul js-footer="menu">
-          <li>
+          <li class="list">
             <i class="bi bi-whatsapp"> +27 79 866 6734</i>
           </li>
-          <li>
+          <li class="list">
             <i class="bi bi-instagram"><a href="https://www.instagram.com/_aakeefahjones_/" target="_blank"> _aakeefahjones_</a></i><br>
           </li>
-          <li>
+          <li class="list">
             <i class="bi bi-github"><a href="https://github.com/keeefles" target="_blank"> @keeefles</a></i><br>
           </li>
-          <li>
+          <li class="list">
             <i class="bi bi-envelope-heart"> aakeefahj@gmail.com</i><br>
           </li>
         </ul>
@@ -21,16 +21,16 @@
       <div class="col">
         <h2 class="h6 col1" js-footer="toggle">About Us:</h2>
         <ul js-footer="menu">
-          <li>
+          <li class="list">
             <a href="/about">What are we about?</a>
           </li>
-          <li>
+          <li class="list">
             <a href="/about">Why we started?</a>
           </li>
-          <li>
+          <li class="list">
             <a href="/about">Who started the Blog?</a>
           </li>
-          <li>
+          <li class="list">
             <a href="/contact">Get in touch</a>
           </li>
         </ul>
@@ -58,6 +58,9 @@ li {
   text-decoration: none;
   display: list-item;
   text-align: left;
+}
+li:hover {
+  color: #a7926e;
 }
 .col {
   display: flex;

@@ -14,6 +14,7 @@
         <addPost />
       </div>
     </div>
+    
     <div class="row" v-if="filteredPosts"> <!-- Use filteredPosts instead of posts -->
       <Card v-for="post in filteredPosts" :key="post.postId">
         <template #card-header>
@@ -26,14 +27,18 @@
           </div>
         </template>
         <template #card-footer>
-          <button
-              class="btn btn-success deleteButton"
+          <div class="button">
+            <button
+              class="btn deleteButton"
               @click="deletePost(post.postId)"
             >
               Delete
             </button>
             <updatePost :post="post" @updatePost="updatePost" />
           <button @click="openForm" class="commentButton btn">Comment</button>
+          </div>
+          
+            
           <div class="formContainer" v-if="openComments">
             <h2 class="heading">Comments</h2>
             <div v-if="comments">
@@ -223,6 +228,10 @@ a {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border: none;
   background-color: teal;
+}
+.button {
+  display: inline-block;
+  justify-content: space-between;
 }
 .card {
   width: 18rem;

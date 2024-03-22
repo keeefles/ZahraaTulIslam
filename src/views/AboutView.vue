@@ -88,16 +88,16 @@ p {
   margin: 0;
   text-align: center;
 }
-.p-3 {
+/* .p-3 {
   margin-left: 100px;
   margin-right: 100px;
-}
+} */
 .aboutImg {
   width: 300px;
   align-items: center;
   display: flex;
   justify-content: center;
-  padding: 15px;
+  /* padding: 15px; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -138,7 +138,8 @@ p {
 }
 
 .text-col {
-  flex-basis: 60%;
+  flex-basis: 65%;
+  margin-right: 20px;
 }
 
 #text-col {
@@ -146,7 +147,7 @@ p {
 }
 
 .img-col {
-  flex-basis: 40%;
+  flex-basis: 30%;
   margin: 0 auto 20 auto;
   height: max-content;
 }
