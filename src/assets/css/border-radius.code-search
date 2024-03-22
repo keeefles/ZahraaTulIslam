@@ -1,0 +1,118 @@
+# Query: border-radius
+# Flags: CaseSensitive WordMatch
+# ContextLines: 1
+
+25 results - 14 files
+
+src\components\AddComment.vue:
+  115    margin: 10px;
+  116:   border-radius: 15px;
+  117    background: #a7926e;
+
+src\components\AddPost.vue:
+  108    margin: 10px;
+  109:   border-radius: 15px;
+  110    background: #a7926e;
+
+src\components\AddUser.vue:
+  153    margin: 10px;
+  154:   border-radius: 15px;
+  155    background: #a7926e;
+
+src\components\UpdateComment.vue:
+  122    margin: 10px;
+  123:   border-radius: 15px;
+  124    background: #a7926e;
+
+src\components\UpdatePost.vue:
+  100    margin: 10px;
+  101:   border-radius: 15px;
+  102    background: #a7926e;
+
+src\components\UpdateUser.vue:
+  201    margin: 10px;
+  202:   border-radius: 15px;
+  203    background: #a7926e;
+
+src\views\AdminView.vue:
+  221    margin: 10px;
+  222:   border-radius: 15px;
+  223    background: #a7926e;
+
+src\views\BlogView.vue:
+  213  .btn {
+  214:   border-radius: 15px;
+  215    color: #fff;
+
+  239    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  240:   border-radius: 15px;
+  241    padding: 30px 20px;
+
+src\views\ContactView.vue:
+  110    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  111:   border-radius: 15px;
+  112  }
+  113  .btn {
+  114:   border-radius: 15px;
+  115    color: #fff;
+
+  140    display: inline-block;
+  141:   border-radius: 15px;
+  142    background: #fff;
+
+src\views\HomeView.vue:
+  77    margin: 10px;
+  78:   border-radius: 15px;
+  79    background: #a7926e;
+
+src\views\LoginView.vue:
+   67    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   68:   border-radius: 15px;
+   69    box-sizing: border-box;
+
+   96  .input {
+   97:   border-radius: 20px;
+   98    border: 1px solid #c0c0c0;
+
+  106    margin-top: 20px;
+  107:   border-radius: 20px;
+  108    border: 0 !important;
+
+src\views\ProfileView.vue:
+  191    text-align: left;
+  192:   border-radius: 8px;
+  193    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  209    margin: 10px;
+  210:   border-radius: 15px;
+  211    background: #a7926e;
+
+  247    text-align: left;
+  248:   border-radius: 8px;
+  249    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  272  .input {
+  273:   border-radius: 15px;
+  274    border: none;
+
+src\views\RegisterView.vue:
+   89    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   90:   border-radius: 15px;
+   91    box-sizing: border-box;
+
+  118  .input {
+  119:   border-radius: 20px;
+  120    border: 1px solid #c0c0c0;
+
+  127    padding: 10px 15px;
+  128:   border-radius: 15px;
+  129    border: 0 !important;
+
+src\views\SinglePost.vue:
+   78  .btn {
+   79:   border-radius: 15px;
+   80    color: #fff;
+
+  104    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  105:   border-radius: 10px;
+  106    padding: 30px 20px;

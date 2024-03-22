@@ -33,6 +33,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                required
                 placeholder="First Name"
                 v-model="payload.firstName"
               />
@@ -41,6 +42,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                required
                 placeholder="Last Name"
                 v-model="payload.lastName"
               />
@@ -49,6 +51,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                required
                 placeholder="Age"
                 v-model="payload.userAge"
               />
@@ -57,6 +60,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                required
                 placeholder="Username"
                 v-model="payload.username"
               />
@@ -65,6 +69,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                required
                 placeholder="Email Address"
                 v-model="payload.emailAdd"
               />
@@ -73,6 +78,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                required
                 placeholder="User Role"
                 v-model="payload.userRole"
               />
@@ -81,6 +87,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                required
                 placeholder="Mobile Number"
                 v-model="payload.mobileNumber"
               />
@@ -89,6 +96,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                required
                 placeholder="User Password"
                 v-model="payload.userPass"
               />
@@ -149,7 +157,7 @@ export default {
 
 <style scoped>
 .btn {
-  padding: 5px;
+  padding: 6px;
   margin: 10px;
   border-radius: 15px;
   background: #a7926e;

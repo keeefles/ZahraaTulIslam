@@ -36,6 +36,7 @@
                   <input
                   type="text"
                   class="form-control w-50 mx-auto"
+                  required
                   placeholder="Post Id"
                   v-model="payload.postId"
                   />
@@ -44,6 +45,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                required
                 placeholder="Username"
                 v-model="payload.username"
               />
@@ -52,6 +54,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                required
                 placeholder="Comment ID"
                 v-model="payload.commentId"
               />
@@ -60,6 +63,7 @@
               <input
                 type="text"
                 class="form-control w-50 mx-auto"
+                required
                 placeholder="Comments"
                 v-model="payload.comments"
               />
@@ -118,7 +122,7 @@ export default {
 
 <style scoped>
 .btn {
-  padding: 5px;
+  padding: 6px;
   margin: 10px;
   border-radius: 15px;
   background: #a7926e;
@@ -126,7 +130,6 @@ export default {
   cursor: pointer;
   transition: 0.3s linear;
 }
-
 .btn:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border: none;

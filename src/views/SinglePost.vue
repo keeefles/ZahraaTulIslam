@@ -76,21 +76,18 @@ a {
   color: inherit;
 }
 .btn {
-  border-radius: 30px;
-  color: #fff;
-  padding: 10px;
+  padding: 6px;
   margin: 10px;
-  background-color: #a7926e;
-  font-size: 12px;
-  border: none;
+  border-radius: 15px;
+  background: #a7926e;
+  color: white;
   cursor: pointer;
-  transition: 0.4s;
+  transition: 0.3s linear;
 }
 .btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: none;
   background-color: teal;
-  color: #fff;
-  transition: 1s;
-  font-size: small;
 }
 .card {
   width: 18rem;

@@ -26,6 +26,13 @@
           </div>
         </template>
         <template #card-footer>
+          <button
+              class="btn btn-success deleteButton"
+              @click="deletePost(post.postId)"
+            >
+              Delete
+            </button>
+            <updatePost :post="post" @updatePost="updatePost" />
           <button @click="openForm" class="commentButton btn">Comment</button>
           <div class="formContainer" v-if="openComments">
             <h2 class="heading">Comments</h2>
@@ -38,6 +45,16 @@
                   <div class="btn-align">
                     <button @click="closeForm" class="btn">Cancel</button>
                     <addComment />
+                    <updateComment
+                :comment="comment"
+                @updateComment="updateComment"
+              />
+                    <button
+                class="btn"
+                @click="deleteComment(comment.commentId)"
+              >
+                Delete
+              </button>
                   </div>
                 </div>
               </div>
@@ -58,6 +75,7 @@ import Card from "../components/Card.vue";
 import addPost from "@/components/AddPost.vue";
 import addComment from "@/components/AddComment.vue";
 import updatePost from "@/components/UpdatePost.vue";
+import updateComment from "@/components/UpdateComment.vue";
 
 export default {
   data() {
@@ -74,6 +92,7 @@ export default {
     addPost,
     addComment,
     updatePost,
+    updateComment,
   },
   computed: {
     posts() {
@@ -103,6 +122,35 @@ export default {
   methods: {
     createPost() {
       this.updateDate();
+    },
+    deletePost(postId) {
+      this.$store.dispatch("deletePost", { id: postId });
+    },
+    updatePost(post) {
+      let editPost = {
+        postId: this.post.postId,
+        username: this.post.username,
+        content: this.post.content,
+      };
+      this.$store.dispatch("updatePost", {
+        id: post.postId,
+        data: editPost,
+      });
+    },
+    updateComment(comment) {
+      let editComment = {
+        postId: this.comment.postId,
+        username: this.comment.username,
+        commentId: this.comment.commentId,
+        comments: this.comment.comments,
+      };
+      this.$store.dispatch("updateComment", {
+        id: comment.commentId,
+        data: editComment,
+      });
+    },
+    deleteComment(commentId) {
+      this.$store.dispatch("deleteComment", { id: commentId });
     },
     updateDate() {
       const currentDate = new Date();
@@ -137,6 +185,9 @@ export default {
   width: 250px;
   align-items: center;
 }
+.form-control:hover {
+  border: #a7926e 1px dashed;
+}
 .container {
   background-image: url("https://iili.io/JXZN74t.md.jpg");
 }
@@ -160,21 +211,18 @@ a {
   color: inherit;
 }
 .btn {
-  border-radius: 30px;
-  color: #fff;
-  padding: 10px;
+  padding: 6px;
   margin: 10px;
-  background-color: #a7926e;
-  font-size: 12px;
-  border: none;
+  border-radius: 15px;
+  background: #a7926e;
+  color: white;
   cursor: pointer;
-  transition: 0.4s;
+  transition: 0.3s linear;
 }
 .btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: none;
   background-color: teal;
-  color: #fff;
-  transition: 1s;
-  font-size: small;
 }
 .card {
   width: 18rem;

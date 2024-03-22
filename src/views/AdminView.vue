@@ -66,7 +66,7 @@
             <td class="d-flex justify-content-between">
               <updatePost :post="post" @updatePost="updatePost" />
               <button
-                class="btn btn-success deleteButton"
+                class="btn deleteButton"
                 @click="deletePost(post.postId)"
               >
                 Delete
@@ -216,6 +216,11 @@ td {
     padding: 20px;
   }
 }
+table {
+  width: 1200px;
+  margin: auto;
+  /* display: inline-block; */
+}
 .btn {
   padding: 6px;
   margin: 10px;
@@ -226,15 +231,9 @@ td {
   cursor: pointer;
   transition: 0.3s linear;
 }
-table {
-  width: 1200px;
-  margin: auto;
-  /* display: inline-block; */
-}
-
 .btn:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: teal;
   background-color: teal;
-  border: none;
 }
 </style>

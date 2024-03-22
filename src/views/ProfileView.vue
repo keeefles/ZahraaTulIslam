@@ -58,19 +58,19 @@
       <form @submit.prevent="updateUser" class="formCont">
         <h2 class="heading">Update</h2>
         <label>username: </label>
-          <input class="input formDeets" type="text" v-model='editedUser.username'>
+          <input class="input formDeets" type="text" required v-model='editedUser.username'>
         <label>first name: </label>
-          <input class="input formDeets" type="text" v-model='editedUser.firstName'>
+          <input class="input formDeets" type="text" required v-model='editedUser.firstName'>
         <label>last name: </label>
-          <input class="input formDeets" type="text" v-model='editedUser.lastName'>
+          <input class="input formDeets" type="text" required v-model='editedUser.lastName'>
         <label>age: </label>
-          <input class="input formDeets" type="text" v-model='editedUser.userAge'>   
+          <input class="input formDeets" type="text" required v-model='editedUser.userAge'>   
         <label>email: </label>
-          <input class="input formDeets" type="text" v-model='editedUser.emailAdd'>
+          <input class="input formDeets" type="text" required v-model='editedUser.emailAdd'>
         <label>mobile number: </label>
-          <input class="input formDeets" type="text" v-model='editedUser.mobileNumber'>   
+          <input class="input formDeets" type="text" required v-model='editedUser.mobileNumber'>   
         <label>password: </label>
-          <input class="input formDeets" type="text" v-model='editedUser.userPass'>
+          <input class="input formDeets" type="text" required v-model='editedUser.userPass'>
         <div class="btn-align">
           <button type="submit" class="btn">Save</button>
           <button @click="closeForm" class="btn">Cancel</button>
@@ -78,7 +78,7 @@
       </form>
     </div>
     <!-- start of display posts -->
-    <!-- <div class="container">
+    <div class="container1">
       <div class="card">
         <div class="col"v-if="user && posts && posts.length">
           <h2 class="heading">{{ user.firstName }}'s Posts</h2>
@@ -91,7 +91,7 @@
           <p>no posts available</p>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -205,7 +205,7 @@ label {
   justify-content: center;
 }
 .btn {
-  padding: 5px;
+  padding: 6px;
   margin: 10px;
   border-radius: 15px;
   background: #a7926e;
@@ -216,7 +216,7 @@ label {
 .btn:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border: none;
-  background-color: #a7926e;
+  background-color: teal;
 }
 .btn-spacing {
   display: flex;
@@ -224,6 +224,10 @@ label {
 }
 .container {
   margin: 50px;
+  display: inline-block;
+}
+.container1 {
+  margin-bottom: 50px;
   display: inline-block;
 }
 .cont {
@@ -278,6 +282,11 @@ label {
     margin-bottom: 20px;
   }
   .container {
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+  }
+  .container1 {
     padding: 0;
     margin: 0;
     margin-top: 20px;

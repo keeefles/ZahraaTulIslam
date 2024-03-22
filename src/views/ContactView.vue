@@ -111,20 +111,18 @@ h2 {
   border-radius: 10px;
 }
 .btn {
-  border-radius: 35px;
-  color: #fff;
-  padding: 10px;
-  background-color: #a7926e;
-  font-size: 12px;
-  border: none;
+  padding: 6px;
+  margin: 10px;
+  border-radius: 15px;
+  background: #a7926e;
+  color: white;
   cursor: pointer;
-  transition: 0.4s;
-  width: max-content;
+  transition: 0.3s linear;
 }
 .btn:hover {
-  color: white;
-  background-color:  teal;
-  transition: 0.5s ease;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: none;
+  background-color: teal;
 }
 form {
   margin: 30px 0;
